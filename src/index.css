@@ -12,7 +12,7 @@
   --white: #fdfcf9;
 
   --font: "EB Garamond", Garamond, Georgia, serif;
-  --font-display: "Instrument Serif", "EB Garamond", Georgia, serif;
+  --font-display: "Fraunces", "EB Garamond", Georgia, serif;
   --font-jp: "Noto Serif JP", var(--font);
 
   --gutter: 20px;
@@ -67,24 +67,25 @@ h2,
 h3 {
   margin: 0;
   font-family: var(--font-display);
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: 1.02;
+  font-weight: 500;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  letter-spacing: -0.015em;
+  line-height: 1.05;
   text-wrap: balance;
 }
 
 h1 {
-  font-size: clamp(3.1rem, 11vw, 6.75rem);
-  letter-spacing: -0.02em;
-  line-height: 0.96;
+  font-size: clamp(2.7rem, 9.5vw, 5.75rem);
+  letter-spacing: -0.025em;
+  line-height: 0.98;
 }
 
 h2 {
-  font-size: clamp(2.1rem, 5.5vw, 3.4rem);
+  font-size: clamp(1.9rem, 5vw, 3rem);
 }
 
 h3 {
-  font-size: 1.55rem;
+  font-size: 1.4rem;
   letter-spacing: 0;
 }
 
