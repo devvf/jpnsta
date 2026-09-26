@@ -9,8 +9,7 @@ export const site = {
   blurb:
     "Interested in Japanese culture? Looking for a familiar community? Keen to practise Japanese, or thinking about a future career in Japan? Join the Japan Society.",
   membershipPrice: "£5",
-  // TODO: confirm the society email address
-  email: "japansoc@st-andrews.ac.uk",
+  email: "japansociety@st-andrews.ac.uk",
 };
 
 export const links = {

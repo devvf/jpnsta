@@ -23,7 +23,7 @@ npm run build    # production build in dist/
 | Colours, fonts, spacing | `src/index.css` (`:root` block) |
 
 Anything marked `TODO` is a placeholder that needs confirming:
-society email, mailing list link, lesson times/rooms, committee names.
+mailing list link, lesson times/rooms, committee names.
 The events currently listed are examples.
 
 Events with a `date` on or after today show as upcoming; older ones drop
