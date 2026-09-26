@@ -1,5 +1,6 @@
 import type { SocietyEvent } from "../data/events";
 import { longDate, timeRange } from "../lib/dates";
+import { AddToCalendar } from "./AddToCalendar";
 
 function Media({ event }: { event: SocietyEvent }) {
   return (
@@ -31,7 +32,16 @@ export function EventCard({
       <Media event={event} />
       <div className="event-body">
         {event.tag && <span className="event-tag">{event.tag}</span>}
-        <h3>{event.title}</h3>
+        <h3>
+          {event.link ? (
+            <a className="event-link" href={event.link} target="_blank" rel="noreferrer">
+              {event.title}
+              <span className="sr-only"> (opens in new tab)</span>
+            </a>
+          ) : (
+            event.title
+          )}
+        </h3>
         {event.subtitle && <p className="event-sub">{event.subtitle}</p>}
         {featured && event.description && <p className="event-desc">{event.description}</p>}
         <ul className="event-meta">
@@ -55,15 +65,12 @@ export function EventCard({
             </li>
           )}
         </ul>
+        {!past && <AddToCalendar event={event} />}
       </div>
     </>
   );
 
-  return event.link ? (
-    <a className={className} data-reveal href={event.link} target="_blank" rel="noreferrer">
-      {inner}
-    </a>
-  ) : (
+  return (
     <article className={className} data-reveal>
       {inner}
     </article>

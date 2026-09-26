@@ -490,9 +490,62 @@ h3 {
   overflow: hidden;
 }
 
-a.event:hover {
+.event:hover {
   border-color: var(--pink);
-  transform: translateY(-2px);
+}
+
+.event-link:hover {
+  color: var(--rust);
+}
+
+.add-cal {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+}
+
+.add-cal-main {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0.4rem 1rem;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  font-weight: 500;
+  line-height: 1;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.add-cal-main::before {
+  content: "+";
+  margin-right: 0.4rem;
+  font-size: 1.15em;
+  line-height: 0;
+}
+
+.add-cal-main:hover {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.add-cal-alt {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  font-size: 0.95rem;
+  color: var(--ink-2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--line);
+}
+
+.add-cal-alt:hover {
+  color: var(--ink);
+  text-decoration-color: var(--ink);
 }
 
 .event-media {
