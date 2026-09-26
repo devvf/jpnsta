@@ -1,13 +1,10 @@
-import { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { links, nav, site } from "../data/site";
 
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const { pathname } = useLocation();
-
-  useEffect(() => setOpen(false), [pathname]);
 
   return (
     <header className="header">
@@ -40,7 +37,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div id="mobile-nav" className="container mobile-nav">
+        <div id="mobile-nav" className="container mobile-nav" onClick={() => setOpen(false)}>
           {nav.map((n) => (
             <NavLink key={n.to} to={n.to}>
               {n.label}
