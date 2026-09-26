@@ -5,7 +5,8 @@
   --ink-2: #5f5751;
   --line: #d9d2c4;
   --rust: #8b3a1f;
-  --red: #e0352b;
+  --red: #de3227;
+  --logo-red: #f1342e;
   --pink: #f0a9a2;
   --pink-2: #f8dcd7;
   --white: #fdfcf9;
@@ -230,8 +231,8 @@ h3 {
 }
 
 .brand-logo {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   flex: none;
 }
 

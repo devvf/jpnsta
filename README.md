@@ -78,13 +78,11 @@ every option above just needs to produce that shape.
 
 ## Logo
 
-`public/logo.svg` is used in the header, hero and favicon. The current file is a
-placeholder drawn to match the society's red seal mark. To replace it with the
-real logo, drop the original PNG in the repo (e.g. `public/logo-source.png`) and
-trace it to SVG with potrace so it stays crisp at any size:
+`public/logo.svg` is used in the header, hero and favicon. It was traced from
+`public/logo-source.jpg` with potrace so it stays crisp at any size. To re-trace
+from a new source image:
 
 ```bash
-magick public/logo-source.png -colorspace gray -threshold 60% -negate public/logo.pbm
-potrace public/logo.pbm -s --flat -o public/logo.svg
-sed -i '' 's/fill="#000000"/fill="#e0352b"/' public/logo.svg && rm public/logo.pbm
+magick public/logo-source.jpg -resize 400% -channel RGB -separate -delete 0 -evaluate-sequence max -threshold 55% logo.pbm
+potrace logo.pbm -s --flat -t 30 -o logo-traced.svg   # then set fill to #f1342e and copy to public/logo.svg
 ```
