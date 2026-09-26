@@ -5,7 +5,7 @@ import { LessonTable } from "../components/LessonTable";
 import { events } from "../data/events";
 import { lessonsIntro } from "../data/lessons";
 import { links, site } from "../data/site";
-import { splitEvents } from "../lib/dates";
+import { parseDate, splitEvents } from "../lib/dates";
 
 export function Home() {
   const { upcoming } = splitEvents(events);
@@ -26,7 +26,8 @@ export function Home() {
             </p>
             <div className="btn-row" style={{ marginTop: "1.75rem" }}>
               <a className="btn primary" href={links.union} target="_blank" rel="noreferrer">
-                Join on the Union site ↗
+                Join on the Union site <span aria-hidden="true">↗</span>
+                <span className="sr-only">(opens in new tab)</span>
               </a>
               <a className="btn ghost" href={links.instagram} target="_blank" rel="noreferrer">
                 @jpnsta on Instagram
@@ -45,17 +46,23 @@ export function Home() {
                       weekday: "long",
                       day: "numeric",
                       month: "long",
-                    }).format(new Date(next[0].date))}
+                    }).format(parseDate(next[0].date))}
                     {next[0].start && ` · ${next[0].start}`}
                     {next[0].location && ` · ${next[0].location}`}
                   </span>
                 </>
               ) : (
-                <span className="muted">Nothing scheduled yet. Check Instagram.</span>
+                <span className="muted">
+                  Nothing scheduled yet. Check{" "}
+                  <a className="text-link" href={links.instagram} target="_blank" rel="noreferrer">
+                    Instagram
+                  </a>
+                  .
+                </span>
               )}
             </div>
             <Link to="/events" className="text-link">
-              All events →
+              All events <span aria-hidden="true">→</span>
             </Link>
           </aside>
         </div>
@@ -69,7 +76,7 @@ export function Home() {
               <h2>Upcoming events</h2>
             </div>
             <Link to="/events" className="text-link">
-              See all events →
+              See all events <span aria-hidden="true">→</span>
             </Link>
           </div>
           {next.length ? (
@@ -92,7 +99,7 @@ export function Home() {
               <h2>Language lessons</h2>
             </div>
             <Link to="/language" className="text-link">
-              Lesson details →
+              Lesson details <span aria-hidden="true">→</span>
             </Link>
           </div>
           <p className="prose muted" style={{ marginBottom: "1.5rem" }}>
@@ -117,13 +124,15 @@ export function Home() {
                 <span>@jpnsta · events, photos, announcements</span>
               </div>
               <span aria-hidden="true">↗</span>
+              <span className="sr-only">(opens in new tab)</span>
             </a>
             <a className="link-card" href={links.mailingList} target="_blank" rel="noreferrer">
               <div>
                 <strong>Mailing list</strong>
-                <span>Weekly email with what's coming up</span>
+                <span>Weekly email · included with membership</span>
               </div>
               <span aria-hidden="true">↗</span>
+              <span className="sr-only">(opens in new tab)</span>
             </a>
             <a className="link-card" href={links.instagramCareers} target="_blank" rel="noreferrer">
               <div>
@@ -131,6 +140,7 @@ export function Home() {
                 <span>@jpnsta_careers · jobs, JET, internships</span>
               </div>
               <span aria-hidden="true">↗</span>
+              <span className="sr-only">(opens in new tab)</span>
             </a>
             <a className="link-card" href={links.facebook} target="_blank" rel="noreferrer">
               <div>
@@ -138,6 +148,7 @@ export function Home() {
                 <span>Group and event pages</span>
               </div>
               <span aria-hidden="true">↗</span>
+              <span className="sr-only">(opens in new tab)</span>
             </a>
           </div>
         </div>

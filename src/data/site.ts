@@ -5,7 +5,7 @@ export const site = {
   name: "Japan Society",
   fullName: "University of St Andrews Japan Society",
   nameJa: "セント・アンドリュース大学 日本協会",
-  tagline: "Bringing Japanese food and culture to our small Scottish town, St Andrews!",
+  tagline: "All things Japan, in St Andrews.",
   blurb:
     "Interested in Japanese culture? Looking for a familiar community? Keen to practise Japanese, or thinking about a future career in Japan? Join the Japan Society.",
   membershipPrice: "£5",

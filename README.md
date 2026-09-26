@@ -79,10 +79,10 @@ every option above just needs to produce that shape.
 ## Logo
 
 `public/logo.svg` is used in the header, hero and favicon. It was traced from
-`public/logo-source.jpg` with potrace so it stays crisp at any size. To re-trace
+`design/logo-source.jpg` with potrace so it stays crisp at any size. To re-trace
 from a new source image:
 
 ```bash
-magick public/logo-source.jpg -resize 400% -channel RGB -separate -delete 0 -evaluate-sequence max -threshold 55% logo.pbm
+magick design/logo-source.jpg -resize 400% -channel RGB -separate -delete 0 -evaluate-sequence max -threshold 55% logo.pbm
 potrace logo.pbm -s --flat -t 30 -o logo-traced.svg   # then set fill to #f1342e and copy to public/logo.svg
 ```

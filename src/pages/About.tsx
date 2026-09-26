@@ -77,6 +77,7 @@ export function About() {
                 <span>How the society is run (SharePoint)</span>
               </div>
               <span aria-hidden="true">↗</span>
+              <span className="sr-only">(opens in new tab)</span>
             </a>
             <a className="link-card" href={links.union} target="_blank" rel="noreferrer">
               <div>
@@ -84,6 +85,7 @@ export function About() {
                 <span>Membership, {site.membershipPrice} a year</span>
               </div>
               <span aria-hidden="true">↗</span>
+              <span className="sr-only">(opens in new tab)</span>
             </a>
             <a className="link-card" href={`mailto:${site.email}`}>
               <div>
@@ -98,6 +100,7 @@ export function About() {
                 <span>Everything in one place</span>
               </div>
               <span aria-hidden="true">↗</span>
+              <span className="sr-only">(opens in new tab)</span>
             </a>
           </div>
         </div>

@@ -6,6 +6,7 @@ import { About } from "./pages/About";
 import { Events } from "./pages/Events";
 import { Home } from "./pages/Home";
 import { Language } from "./pages/Language";
+import { NotFound } from "./pages/NotFound";
 
 export default function App() {
   return (
@@ -18,7 +19,7 @@ export default function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/language" element={<Language />} />
           <Route path="/about" element={<About />} />
-          <Route path="*" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
