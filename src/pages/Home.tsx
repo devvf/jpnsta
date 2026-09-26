@@ -22,7 +22,7 @@ export function Home() {
               Japanese culture, <em>at St Andrews.</em>
             </h1>
             <p className="lead" style={{ marginTop: "1.25rem" }}>
-              {site.blurb}
+              {site.tagline}
             </p>
             <div className="btn-row" style={{ marginTop: "1.75rem" }}>
               <a className="btn primary" href={links.union} target="_blank" rel="noreferrer">

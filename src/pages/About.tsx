@@ -19,9 +19,7 @@ export function About() {
           <span className="eyebrow jp">{site.nameJa}</span>
           <h1>About the society</h1>
           <p className="lead" style={{ marginTop: "1rem" }}>
-            We exist to broaden the knowledge, appreciation and understanding of
-            Japan among students at St Andrews, and to give anyone who misses
-            Japan a place to feel at home.
+            {site.blurb}
           </p>
         </div>
       </section>
