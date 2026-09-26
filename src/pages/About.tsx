@@ -16,9 +16,9 @@ export function About() {
     <>
       <section className="page-head">
         <div className="container">
-          <span className="eyebrow jp">{site.nameJa}</span>
-          <h1>About the society</h1>
-          <p className="lead" style={{ marginTop: "1rem" }}>
+          <span className="eyebrow jp" data-reveal>{site.nameJa}</span>
+          <h1 data-reveal>About the society</h1>
+          <p className="lead" data-reveal style={{ marginTop: "1rem" }}>
             {site.blurb}
           </p>
         </div>
@@ -30,7 +30,7 @@ export function About() {
             <span className="eyebrow">What we do</span>
             <h2>A bit of everything</h2>
           </div>
-          <div className="prose">
+          <div className="prose" data-reveal>
             <p>
               Karaoke nights, Japanese food nights, film screenings, pub
               quizzes, origami afternoons, language cafés, and weekly language
@@ -53,7 +53,7 @@ export function About() {
           </div>
           <div className="link-grid">
             {committee.map((c) => (
-              <div className="link-card" key={c.role}>
+              <div className="link-card" data-reveal key={c.role}>
                 <div>
                   <strong>{c.name}</strong>
                   <span>{c.role}</span>
@@ -71,7 +71,7 @@ export function About() {
             <h2>The paperwork</h2>
           </div>
           <div className="link-grid">
-            <a className="link-card" href={links.constitution} target="_blank" rel="noreferrer">
+            <a className="link-card" data-reveal href={links.constitution} target="_blank" rel="noreferrer">
               <div>
                 <strong>Constitution</strong>
                 <span>How the society is run (SharePoint)</span>
@@ -79,7 +79,7 @@ export function About() {
               <span aria-hidden="true">↗</span>
               <span className="sr-only">(opens in new tab)</span>
             </a>
-            <a className="link-card" href={links.union} target="_blank" rel="noreferrer">
+            <a className="link-card" data-reveal href={links.union} target="_blank" rel="noreferrer">
               <div>
                 <strong>Union page</strong>
                 <span>Membership, {site.membershipPrice} a year</span>
@@ -87,14 +87,14 @@ export function About() {
               <span aria-hidden="true">↗</span>
               <span className="sr-only">(opens in new tab)</span>
             </a>
-            <a className="link-card" href={`mailto:${site.email}`}>
+            <a className="link-card" data-reveal href={`mailto:${site.email}`}>
               <div>
                 <strong>Email us</strong>
                 <span>{site.email}</span>
               </div>
               <span aria-hidden="true">→</span>
             </a>
-            <a className="link-card" href={links.linktree} target="_blank" rel="noreferrer">
+            <a className="link-card" data-reveal href={links.linktree} target="_blank" rel="noreferrer">
               <div>
                 <strong>Linktree</strong>
                 <span>Everything in one place</span>

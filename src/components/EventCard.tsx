@@ -23,10 +23,10 @@ export function EventCard({ event, past = false }: { event: SocietyEvent; past?:
   );
 
   return event.link ? (
-    <a className={className} href={event.link} target="_blank" rel="noreferrer">
+    <a className={className} data-reveal href={event.link} target="_blank" rel="noreferrer">
       {inner}
     </a>
   ) : (
-    <article className={className}>{inner}</article>
+    <article className={className} data-reveal>{inner}</article>
   );
 }

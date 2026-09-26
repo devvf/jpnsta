@@ -2,7 +2,7 @@ import { lessons } from "../data/lessons";
 
 export function LessonTable() {
   return (
-    <div className="lesson-table">
+    <div className="lesson-table" data-reveal>
       {lessons.map((l) => (
         <div className="lesson" key={l.level}>
           <div className="lesson-level">

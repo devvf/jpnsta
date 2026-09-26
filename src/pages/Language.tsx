@@ -8,9 +8,9 @@ export function Language() {
     <>
       <section className="page-head">
         <div className="container">
-          <span className="eyebrow jp">日本語</span>
-          <h1>Language lessons</h1>
-          <p className="lead" style={{ marginTop: "1rem" }}>
+          <span className="eyebrow jp" data-reveal>日本語</span>
+          <h1 data-reveal>Language lessons</h1>
+          <p className="lead" data-reveal style={{ marginTop: "1rem" }}>
             {lessonsIntro}
           </p>
         </div>
@@ -18,7 +18,7 @@ export function Language() {
 
       <section className="section">
         <div className="container">
-          <div className="section-head">
+          <div className="section-head" data-reveal>
             <h2>Weekly timetable</h2>
           </div>
           <LessonTable />
@@ -31,7 +31,7 @@ export function Language() {
             <span className="eyebrow">Good to know</span>
             <h2>How it works</h2>
           </div>
-          <div className="prose">
+          <div className="prose" data-reveal>
             <h3>Who teaches?</h3>
             <p>
               Lessons are run by members, including native and advanced speakers.

@@ -11,9 +11,9 @@ export function Events() {
     <>
       <section className="page-head">
         <div className="container">
-          <span className="eyebrow">What's on</span>
-          <h1>Events</h1>
-          <p className="lead" style={{ marginTop: "1rem" }}>
+          <span className="eyebrow" data-reveal>What's on</span>
+          <h1 data-reveal>Events</h1>
+          <p className="lead" data-reveal style={{ marginTop: "1rem" }}>
             Socials, food nights, film screenings, karaoke and the odd pub quiz.
             Details and last-minute changes go on{" "}
             <a className="text-link" href={links.instagram} target="_blank" rel="noreferrer">
@@ -26,7 +26,7 @@ export function Events() {
 
       <section className="section">
         <div className="container">
-          <div className="section-head">
+          <div className="section-head" data-reveal>
             <h2>Upcoming</h2>
           </div>
           {upcoming.length ? (
@@ -36,7 +36,7 @@ export function Events() {
               ))}
             </div>
           ) : (
-            <div className="empty">Nothing scheduled yet. Check back soon.</div>
+            <div className="empty" data-reveal>Nothing scheduled yet. Check back soon.</div>
           )}
 
           {past.length > 0 && (

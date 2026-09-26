@@ -307,8 +307,22 @@ h3 {
 .mobile-nav {
   display: grid;
   gap: 0.25rem;
-  padding: 0.5rem 0 1.25rem;
+  padding: 0.5rem var(--gutter) 1.25rem;
   border-top: 1px solid var(--line);
+  animation: menu-in 0.22s ease-out;
+  transform-origin: top;
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .mobile-nav a {
@@ -734,6 +748,7 @@ details.past-events .event-list {
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;
+    animation: none !important;
   }
 
   html {
@@ -755,4 +770,45 @@ details.past-events .event-list {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* Motion */
+.page {
+  animation: page-in 0.4s ease-out both;
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+a[data-reveal].is-visible,
+.event.is-visible {
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

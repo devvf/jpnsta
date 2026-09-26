@@ -4,7 +4,7 @@ export function JoinBanner() {
   return (
     <section className="section">
       <div className="container">
-        <div className="banner">
+        <div className="banner" data-reveal>
           <div>
             <h2>Join for {site.membershipPrice} a year.</h2>
             <p className="muted" style={{ margin: "0.75rem 0 0" }}>
