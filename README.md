@@ -30,6 +30,12 @@ Events with a `date` on or after today show as upcoming; older ones drop
 into the collapsed "Past events" list. Add a `link` to make a card clickable
 (e.g. to an Instagram post or a ticket page).
 
+Event images go in `public/events/` and are referenced as `image: "/events/name.webp"`.
+Aim for 4:3 and about 1200px wide. Instagram posters work but get cropped, so a
+photo usually looks better. Events without an image get a styled placeholder.
+`status` is the short label over the image ("Free with membership", "Book now",
+"Sold out"). `tag` drives the filter chips on the events page.
+
 ## Pages
 
 - `/` — hero with Union join CTA + Instagram, next 3 events, lesson timetable, socials, join banner

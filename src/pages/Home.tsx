@@ -16,7 +16,6 @@ export function Home() {
       <section className="hero">
         <div className="container hero-grid">
           <div>
-            <img className="hero-logo" data-reveal src="/logo.svg" alt={site.fullName} width="360" height="360" />
             <span className="eyebrow jp" data-reveal>{site.nameJa}</span>
             <h1 data-reveal>
               All things Japan, <em>in St Andrews.</em>
@@ -35,7 +34,9 @@ export function Home() {
             </div>
           </div>
 
-          <aside className="hero-aside" data-reveal>
+          <div className="hero-side">
+            <img className="hero-logo" data-reveal src="/logo.svg" alt={site.fullName} width="360" height="360" />
+            <aside className="hero-aside" data-reveal>
             <div>
               <span className="eyebrow">Next up</span>
               {next[0] ? (
@@ -64,7 +65,8 @@ export function Home() {
             <Link to="/events" className="text-link">
               All events <span aria-hidden="true">→</span>
             </Link>
-          </aside>
+            </aside>
+          </div>
         </div>
       </section>
 
