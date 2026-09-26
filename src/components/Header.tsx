@@ -10,7 +10,7 @@ export function Header() {
     <header className="header">
       <div className="container header-inner">
         <Link to="/" className="brand" aria-label={`${site.fullName} home`}>
-          <span className="brand-dot" aria-hidden="true" />
+          <img className="brand-logo" src="/logo.svg" alt="" width="36" height="36" />
           <span>{site.name}</span>
           <span className="brand-sub">St Andrews</span>
         </Link>

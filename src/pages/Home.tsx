@@ -14,9 +14,9 @@ export function Home() {
   return (
     <>
       <section className="hero">
-        <div className="hero-mark" aria-hidden="true" />
         <div className="container hero-grid">
           <div>
+            <img className="hero-logo" src="/logo.svg" alt={site.fullName} width="360" height="360" />
             <span className="eyebrow jp">{site.nameJa}</span>
             <h1>
               Japanese culture, <em>at St Andrews.</em>

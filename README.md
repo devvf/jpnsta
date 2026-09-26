@@ -75,3 +75,16 @@ Options in rough order of effort. All of these keep the site static and free.
 Recommendation: start with 1, move to 2 when someone non-technical needs to
 add events. The `SocietyEvent` type in `src/data/events.ts` is the contract;
 every option above just needs to produce that shape.
+
+## Logo
+
+`public/logo.svg` is used in the header, hero and favicon. The current file is a
+placeholder drawn to match the society's red seal mark. To replace it with the
+real logo, drop the original PNG in the repo (e.g. `public/logo-source.png`) and
+trace it to SVG with potrace so it stays crisp at any size:
+
+```bash
+magick public/logo-source.png -colorspace gray -threshold 60% -negate public/logo.pbm
+potrace public/logo.pbm -s --flat -o public/logo.svg
+sed -i '' 's/fill="#000000"/fill="#e0352b"/' public/logo.svg && rm public/logo.pbm
+```
