@@ -1,10 +1,11 @@
-// Events are plain data so they can later be swapped for a fetch
-// (Google Sheet, Calendar feed, CMS, or an API) without touching the UI.
+// Events live in events.json, which the committee edits through Pages CMS
+// (config in /.pages.yml). This file types and tidies that data for the UI.
 //
 // date: ISO date (YYYY-MM-DD). start/end: 24h "HH:MM".
 // image: path under public/ (ideally 4:3, ~1200px wide). Omit for a styled placeholder.
 // status: short label shown on the image, e.g. "Free with membership", "Book now", "Sold out".
-// The entries below are examples. Replace them with real events.
+
+import data from "./events.json";
 
 export type EventTag = "Social" | "Language" | "Culture" | "Careers" | "Food";
 
@@ -25,75 +26,43 @@ export type SocietyEvent = {
 
 export const eventTags: EventTag[] = ["Social", "Language", "Culture", "Food", "Careers"];
 
-export const events: SocietyEvent[] = [
-  {
-    id: "welcome-social",
-    title: "Welcome Social",
-    subtitle: "Meet the committee and everyone else who's into Japan",
-    date: "2026-10-01",
-    start: "19:00",
-    end: "21:00",
-    location: "The Rule",
-    description: "No Japanese required. Come along, say hi, find out what's on this year.",
-    tag: "Social",
-    status: "Free, all welcome",
-  },
-  {
-    id: "language-cafe-oct",
-    title: "Language Café",
-    subtitle: "Relaxed conversation practice in Japanese and English",
-    date: "2026-10-14",
-    start: "19:00",
-    end: "21:00",
-    location: "The Rule",
-    description: "All levels welcome. Native speakers and complete beginners at the same table.",
-    tag: "Language",
-    image: "/events/language-cafe.webp",
-    status: "Free with membership",
-  },
-  {
-    id: "origami-and-tea",
-    title: "Origami & Tea",
-    subtitle: "Fold & sip",
-    date: "2026-10-24",
-    start: "16:00",
-    end: "17:30",
-    location: "Old Union Building",
-    description: "Paper cranes, green tea, and a slow Saturday afternoon.",
-    tag: "Culture",
-    image: "/events/origami-tea.webp",
-    status: "Free with membership",
-  },
-  {
-    id: "food-night",
-    title: "Japanese Food Night",
-    subtitle: "Cook and eat together",
-    date: "2026-11-07",
-    start: "18:30",
-    location: "TBC",
-    description: "Details on Instagram nearer the time.",
-    tag: "Food",
-    status: "Book now",
-  },
-  {
-    id: "careers-talk",
-    title: "Working in Japan",
-    subtitle: "JET, internships and graduate schemes",
-    date: "2026-11-18",
-    start: "18:00",
-    end: "19:30",
-    location: "TBC",
-    description: "A talk and Q&A with alumni who've done it.",
-    tag: "Careers",
-  },
-  {
-    id: "language-cafe-feb",
-    title: "Language Café",
-    date: "2026-02-18",
-    start: "19:00",
-    end: "21:00",
-    location: "The Rule",
-    tag: "Language",
-    image: "/events/language-cafe.webp",
-  },
-];
+type RawEvent = Record<string, unknown>;
+
+const DATE = /^\d{4}-\d{2}-\d{2}$/;
+const TIME = /^([01]\d|2[0-3]):[0-5]\d$/;
+
+// The CMS writes "" or null for blank optional fields; treat both as missing.
+const text = (v: unknown) => (typeof v === "string" && v.trim() ? v.trim() : undefined);
+
+const slug = (s: string) =>
+  s.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "event";
+
+function toEvent(raw: RawEvent): SocietyEvent | null {
+  const title = text(raw.title);
+  const date = text(raw.date);
+  // Skip half-finished entries rather than breaking the page.
+  if (!title || !date || !DATE.test(date)) return null;
+
+  const tag = text(raw.tag);
+  const start = text(raw.start);
+  const end = text(raw.end);
+
+  return {
+    id: `${slug(title)}-${date}`,
+    title,
+    date,
+    subtitle: text(raw.subtitle),
+    start: start && TIME.test(start) ? start : undefined,
+    end: end && TIME.test(end) ? end : undefined,
+    location: text(raw.location),
+    description: text(raw.description),
+    tag: eventTags.includes(tag as EventTag) ? (tag as EventTag) : undefined,
+    image: text(raw.image),
+    status: text(raw.status),
+    link: text(raw.link),
+  };
+}
+
+export const events: SocietyEvent[] = ((data.events ?? []) as RawEvent[])
+  .map(toEvent)
+  .filter((e): e is SocietyEvent => e !== null);

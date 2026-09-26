@@ -17,7 +17,7 @@ npm run build    # production build in dist/
 | What | File |
 |---|---|
 | Society name, blurb, email, all external links | `src/data/site.ts` |
-| Events (upcoming + past, sorted automatically by date) | `src/data/events.ts` |
+| Events (upcoming + past, sorted automatically by date) | `src/data/events.json` (edit via Pages CMS, below) |
 | Language lesson timetable | `src/data/lessons.ts` |
 | Committee list | `src/pages/About.tsx` (top of file) |
 | Colours, fonts, spacing | `src/index.css` (`:root` block) |
@@ -27,14 +27,34 @@ mailing list link, lesson times/rooms, committee names.
 The events currently listed are examples.
 
 Events with a `date` on or after today show as upcoming; older ones drop
-into the collapsed "Past events" list. Add a `link` to make a card clickable
-(e.g. to an Instagram post or a ticket page).
+into the collapsed "Past events" list. Events without an image get a styled
+placeholder. Half-filled events (no title or date) are skipped, not shown broken.
 
-Event images go in `public/events/` and are referenced as `image: "/events/name.webp"`.
-Aim for 4:3 and about 1200px wide. Instagram posters work but get cropped, so a
-photo usually looks better. Events without an image get a styled placeholder.
-`status` is the short label over the image ("Free with membership", "Book now",
-"Sold out"). `tag` drives the filter chips on the events page.
+## Adding events (for the committee)
+
+Events are edited through **[Pages CMS](https://app.pagescms.org)**, a free form-based
+editor. No code needed.
+
+1. Go to app.pagescms.org and sign in with GitHub.
+2. Open this repo, then **Events**.
+3. Add an event (or edit one), fill in the form, upload a photo, **Save**.
+4. The site updates by itself in about a minute.
+
+Photos: landscape, ideally 4:3 and about 1200px wide. Instagram posters work but
+get cropped, so a photo usually looks better. "Label on image" is the short tag
+over the photo ("Free with membership", "Book now", "Sold out").
+
+Form fields are defined in `.pages.yml`. Uploaded images land in `public/events/`.
+
+### Handover each year
+
+- The repo lives in the society's GitHub organisation. The **society GitHub
+  account** (registered with the society email) is an owner. Its login,
+  two-factor secret and recovery codes are kept with the other society logins.
+  Don't let these live on one person's phone.
+- New committee: make free GitHub accounts, and an owner invites them to the
+  org (*Org → People → Invite member*). Remove last year's committee.
+- That's it. Nothing needs installing.
 
 ## Pages
 
@@ -52,35 +72,6 @@ workflow to `/<repo>/`; with a custom domain leave it as `/`.
 
 **Cloudflare Pages / Netlify** — connect the repo, build command `npm run build`,
 output `dist`. `public/_redirects` already handles SPA deep links.
-
-## Adding "real" event management later
-
-Options in rough order of effort. All of these keep the site static and free.
-
-1. **Edit `events.ts` on GitHub** (now). Committee edits the file in the browser,
-   the Action redeploys in ~1 minute. Zero infra. Fine for a handful of events a term.
-
-2. **Google Sheet as the source.** Committee keeps events in a Sheet. Publish it
-   as CSV (*File → Share → Publish to web*), and either:
-   - fetch it at build time in a scheduled GitHub Action (nightly + on demand), or
-   - fetch it client-side with a tiny CSV parse in `src/lib/`.
-   No auth, no server, and the people adding events never touch code.
-
-3. **Google Calendar.** Committee already maintains a calendar → publish the
-   public ICS feed → parse at build time in the Action (client-side fetch is
-   blocked by CORS). Nice if you also want an "add to calendar" button.
-
-4. **Git-backed CMS** (Pages CMS, Decap, Sveltia). Gives a proper admin UI that
-   commits to the repo via GitHub login. Still no server. Good once you also
-   want non-devs editing copy and images.
-
-5. **Real backend** only if you need sign-ups, RSVPs, or member-only content:
-   Supabase (Postgres + auth, generous free tier) or Cloudflare Workers + D1.
-   Swap `events` import for a fetch; the UI doesn't change.
-
-Recommendation: start with 1, move to 2 when someone non-technical needs to
-add events. The `SocietyEvent` type in `src/data/events.ts` is the contract;
-every option above just needs to produce that shape.
 
 ## Logo
 

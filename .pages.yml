@@ -1,0 +1,73 @@
+# Pages CMS config: https://pagescms.org
+# Committee members edit events at app.pagescms.org; each save commits to
+# main and the Deploy workflow republishes the site (about a minute).
+
+media:
+  input: public/events
+  output: /events
+  categories: [image]
+
+content:
+  - name: events
+    label: Events
+    type: file
+    path: src/data/events.json
+    fields:
+      - name: events
+        label: Events
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.title} · {fields.date}"
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: subtitle
+            label: Subtitle
+            type: string
+            description: One short line under the title, e.g. "Meet the committee".
+          - name: date
+            label: Date
+            type: date
+            required: true
+          - name: start
+            label: Start time
+            type: string
+            description: 24-hour time, e.g. 19:00
+            pattern:
+              regex: "^$|^([01]\\d|2[0-3]):[0-5]\\d$"
+              message: Use 24-hour time like 19:00
+          - name: end
+            label: End time
+            type: string
+            description: Optional. 24-hour time, e.g. 21:00
+            pattern:
+              regex: "^$|^([01]\\d|2[0-3]):[0-5]\\d$"
+              message: Use 24-hour time like 21:00
+          - name: location
+            label: Location
+            type: string
+            description: Venue name, or TBC
+          - name: tag
+            label: Category
+            type: select
+            options:
+              values: [Social, Language, Culture, Food, Careers]
+          - name: image
+            label: Image
+            type: image
+            description: Landscape photo, ideally 4:3 and about 1200px wide. Leave empty for a plain card.
+          - name: status
+            label: Label on image
+            type: string
+            description: e.g. "Free with membership", "Book now", "Sold out"
+          - name: description
+            label: Description
+            type: text
+          - name: link
+            label: Link
+            type: string
+            description: Optional ticket or sign-up URL
