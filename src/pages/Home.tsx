@@ -19,10 +19,10 @@ export function Home() {
             <img className="hero-logo" src="/logo.svg" alt={site.fullName} width="360" height="360" />
             <span className="eyebrow jp">{site.nameJa}</span>
             <h1>
-              Japanese culture, <em>at St Andrews.</em>
+              All things Japan, <em>in St Andrews.</em>
             </h1>
             <p className="lead" style={{ marginTop: "1.25rem" }}>
-              {site.tagline}
+              {site.hero}
             </p>
             <div className="btn-row" style={{ marginTop: "1.75rem" }}>
               <a className="btn primary" href={links.union} target="_blank" rel="noreferrer">
