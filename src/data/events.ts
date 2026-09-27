@@ -7,7 +7,7 @@
 
 import data from "./events.json";
 
-export type EventTag = "Social" | "Language" | "Culture" | "Careers" | "Food";
+export type EventTag = "Social" | "Language" | "Culture" | "Careers" | "Food" | "Society";
 
 export type SocietyEvent = {
   id: string;
@@ -24,7 +24,7 @@ export type SocietyEvent = {
   link?: string;
 };
 
-export const eventTags: EventTag[] = ["Social", "Language", "Culture", "Food", "Careers"];
+export const eventTags: EventTag[] = ["Social", "Language", "Culture", "Food", "Careers", "Society"];
 
 type RawEvent = Record<string, unknown>;
 

@@ -1,4 +1,6 @@
+import { IndexList } from "../components/IndexList";
 import { JoinBanner } from "../components/JoinBanner";
+import { Kanji } from "../components/Kanji";
 import { links, site } from "../data/site";
 
 // TODO: fill in the current committee.
@@ -16,30 +18,55 @@ export function About() {
     <>
       <section className="page-head">
         <div className="container">
-          <span className="eyebrow jp" data-reveal>{site.nameJa}</span>
+          <Kanji className="page-kanji">紹介</Kanji>
           <h1 data-reveal>About the society</h1>
-          <p className="lead" data-reveal style={{ marginTop: "1rem" }}>
+          <p className="lead" data-reveal>
             {site.blurb}
           </p>
         </div>
       </section>
 
+      <figure className="photo band" data-reveal>
+        <img src="/photos/about.webp" alt="" width="1600" height="1067" />
+      </figure>
+
       <section className="section">
         <div className="container split">
-          <div>
-            <span className="eyebrow">What we do</span>
-            <h2>A bit of everything</h2>
+          <div className="section-head" data-reveal>
+            <div>
+              <Kanji>活動</Kanji>
+              <h2>A bit of everything</h2>
+            </div>
           </div>
           <div className="prose" data-reveal>
             <p>
-              Karaoke nights, Japanese food nights, film screenings, pub
-              quizzes, origami afternoons, language cafés, and weekly language
-              lessons. We also run a careers account for anyone thinking about
-              working or studying in Japan.
+              We plan to run about one event a week: socials, language cafés
+              and weekly language classes. Karaoke, matcha and sake tastings,
+              onigiri making and a film screening with Film Society are in the
+              pipeline.
             </p>
             <p>
-              You don't need to speak Japanese, have been to Japan, or be
-              studying anything related. Curiosity is enough.
+              We also run a careers account for anyone thinking about working
+              or studying in Japan.
+            </p>
+            <p>
+              Everyone is welcome, even if you don't speak Japanese and just
+              want to hang out.
+            </p>
+            <h3>Membership</h3>
+            <p>
+              Membership is {site.membershipPrice} for the 2026/27 academic
+              year. Pay online on the{" "}
+              <a className="text-link" href={links.union} target="_blank" rel="noreferrer">
+                Union page
+                <span className="sr-only"> (opens in new tab)</span>
+              </a>
+              , or bring {site.membershipPrice} in cash to any event.
+            </p>
+            <p>
+              Members get a membership card, our weekly email, free language
+              classes and discounts with our sponsors. Details of the
+              discounts are on their way.
             </p>
           </div>
         </div>
@@ -47,62 +74,39 @@ export function About() {
 
       <section className="section">
         <div className="container split">
-          <div>
-            <span className="eyebrow">Committee</span>
-            <h2>Who runs it</h2>
+          <div className="section-head" data-reveal>
+            <div>
+              <Kanji>委員会</Kanji>
+              <h2>Who runs it</h2>
+            </div>
           </div>
-          <div className="link-grid">
+          <dl className="roster" data-reveal>
             {committee.map((c) => (
-              <div className="link-card" data-reveal key={c.role}>
-                <div>
-                  <strong>{c.name}</strong>
-                  <span>{c.role}</span>
-                </div>
+              <div key={c.role}>
+                <dt>{c.role}</dt>
+                <dd>{c.name}</dd>
               </div>
             ))}
-          </div>
+          </dl>
         </div>
       </section>
 
       <section className="section">
         <div className="container split">
-          <div>
-            <span className="eyebrow">Documents & contact</span>
-            <h2>The paperwork</h2>
+          <div className="section-head" data-reveal>
+            <div>
+              <Kanji>書類</Kanji>
+              <h2>Documents and contact</h2>
+            </div>
           </div>
-          <div className="link-grid">
-            <a className="link-card" data-reveal href={links.constitution} target="_blank" rel="noreferrer">
-              <div>
-                <strong>Constitution</strong>
-                <span>How the society is run (SharePoint)</span>
-              </div>
-              <span aria-hidden="true">↗</span>
-              <span className="sr-only">(opens in new tab)</span>
-            </a>
-            <a className="link-card" data-reveal href={links.union} target="_blank" rel="noreferrer">
-              <div>
-                <strong>Union page</strong>
-                <span>Membership, {site.membershipPrice} a year</span>
-              </div>
-              <span aria-hidden="true">↗</span>
-              <span className="sr-only">(opens in new tab)</span>
-            </a>
-            <a className="link-card" data-reveal href={`mailto:${site.email}`}>
-              <div>
-                <strong>Email us</strong>
-                <span>{site.email}</span>
-              </div>
-              <span aria-hidden="true">→</span>
-            </a>
-            <a className="link-card" data-reveal href={links.linktree} target="_blank" rel="noreferrer">
-              <div>
-                <strong>Linktree</strong>
-                <span>Everything in one place</span>
-              </div>
-              <span aria-hidden="true">↗</span>
-              <span className="sr-only">(opens in new tab)</span>
-            </a>
-          </div>
+          <IndexList
+            items={[
+              { label: "Constitution", note: "How the society is run", href: links.constitution },
+              { label: "Union page", note: `Membership, ${site.membershipPrice} a year, online or cash at any event`, href: links.union },
+              { label: "Email us", note: site.email, href: `mailto:${site.email}`, external: false },
+              { label: "Linktree", note: "Everything in one place", href: links.linktree },
+            ]}
+          />
         </div>
       </section>
 

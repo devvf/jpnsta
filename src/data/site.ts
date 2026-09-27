@@ -8,7 +8,7 @@ export const site = {
   tagline: "All things Japan, in St Andrews.",
   hero: "Bringing Japanese food and culture to our small Scottish town, St Andrews!",
   blurb:
-    "Interested in Japanese culture? Looking for a familiar community? Keen to practise Japanese, or thinking about a future career in Japan? Join the Japan Society.",
+    "Interested in Japanese culture? Keen to practise your Japanese, or just want to hang out? We plan to run about one event a week, and everyone is welcome.",
   membershipPrice: "£5",
   email: "japansociety@st-andrews.ac.uk",
 };
@@ -22,7 +22,8 @@ export const links = {
   constitution:
     "https://universityofstandrews907-my.sharepoint.com/:w:/g/personal/mo82_st-andrews_ac_uk/IQB8SWPM8y8lSYr5ohPzLO8mAVvn7R2W583hxxMSAFfj2e8?e=OcQrxb",
   youtube: "https://youtu.be/lkIyaiK5Aak",
-  // TODO: replace with the real mailing list sign-up (Google Form / Mailchimp / Union list)
+  // There is no separate sign-up: members are added to the weekly email
+  // automatically when they join, so this points at the Union membership page.
   mailingList: "https://www.yourunion.net/activities/societies/explore/japan/",
 };
 

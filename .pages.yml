@@ -55,7 +55,7 @@ content:
             label: Category
             type: select
             options:
-              values: [Social, Language, Culture, Food, Careers]
+              values: [Social, Language, Culture, Food, Careers, Society]
           - name: image
             label: Image
             type: image

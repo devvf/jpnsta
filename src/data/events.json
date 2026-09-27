@@ -1,68 +1,57 @@
 {
   "events": [
     {
-      "title": "Welcome Social",
-      "subtitle": "Meet the committee and everyone else who's into Japan",
-      "date": "2026-10-01",
-      "start": "19:00",
-      "end": "21:00",
+      "title": "Pub Social",
+      "subtitle": "Our first pub social of the year",
+      "date": "2026-09-18",
+      "start": "19:30",
       "location": "The Rule",
-      "description": "No Japanese required. Come along, say hi, find out what's on this year.",
       "tag": "Social",
-      "status": "Free, all welcome"
+      "image": "/events/stock-social.webp"
+    },
+    {
+      "title": "Garden Party",
+      "subtitle": "Snacks, tea and good company",
+      "date": "2026-09-26",
+      "start": "14:00",
+      "end": "16:00",
+      "location": "St Andrews",
+      "description": "A chilled afternoon of snacks, tea and good company.",
+      "tag": "Social"
     },
     {
       "title": "Language Café",
-      "subtitle": "Relaxed conversation practice in Japanese and English",
-      "date": "2026-10-14",
+      "subtitle": "Meet new people and practise your Japanese",
+      "date": "2026-09-29",
       "start": "19:00",
-      "end": "21:00",
+      "end": "20:00",
       "location": "The Rule",
-      "description": "All levels welcome. Native speakers and complete beginners at the same table.",
+      "description": "Meet new people, share your love of Japanese culture, and practise your language skills. Everyone is welcome, even if you don't speak Japanese and just want to hang out.",
       "tag": "Language",
-      "image": "/events/language-cafe.webp",
-      "status": "Free with membership"
+      "image": "/events/stock-social.webp",
+      "status": "Everyone welcome"
     },
     {
-      "title": "Origami & Tea",
-      "subtitle": "Fold & sip",
-      "date": "2026-10-24",
-      "start": "16:00",
-      "end": "17:30",
-      "location": "Old Union Building",
-      "description": "Paper cranes, green tea, and a slow Saturday afternoon.",
-      "tag": "Culture",
-      "image": "/events/origami-tea.webp",
-      "status": "Free with membership"
-    },
-    {
-      "title": "Japanese Food Night",
-      "subtitle": "Cook and eat together",
-      "date": "2026-11-07",
-      "start": "18:30",
-      "location": "TBC",
-      "description": "Details on Instagram nearer the time.",
-      "tag": "Food",
-      "status": "Book now"
-    },
-    {
-      "title": "Working in Japan",
-      "subtitle": "JET, internships and graduate schemes",
-      "date": "2026-11-18",
+      "title": "Language Classes: first session",
+      "subtitle": "Beginner, Intermediate and Advanced, all at the same time",
+      "date": "2026-10-02",
       "start": "18:00",
-      "end": "19:30",
-      "location": "TBC",
-      "description": "A talk and Q&A with alumni who've done it.",
-      "tag": "Careers"
+      "end": "19:00",
+      "location": "Meeting Room 0, the Union",
+      "description": "Classes run every Friday until 27 November, with no class on 23 October (Independent Learning Week). Free for members with a membership card, £2 per class for non-members.",
+      "tag": "Language",
+      "image": "/events/stock-language.webp",
+      "status": "Free for members"
     },
     {
-      "title": "Language Café",
-      "date": "2026-02-18",
-      "start": "19:00",
-      "end": "21:00",
-      "location": "The Rule",
-      "tag": "Language",
-      "image": "/events/language-cafe.webp"
+      "title": "Extraordinary General Meeting",
+      "subtitle": "Electing General Committee Members",
+      "date": "2026-10-07",
+      "start": "17:00",
+      "end": "18:00",
+      "location": "Society Room A, the Union",
+      "description": "We are electing our General Committee Members. Details on how to run will follow.",
+      "tag": "Society"
     }
   ]
 }

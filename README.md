@@ -22,9 +22,10 @@ npm run build    # production build in dist/
 | Committee list | `src/pages/About.tsx` (top of file) |
 | Colours, fonts, spacing | `src/index.css` (`:root` block) |
 
-Anything marked `TODO` is a placeholder that needs confirming:
-mailing list link, lesson times/rooms, committee names.
-The events currently listed are examples.
+Still placeholder: committee names on the About page. Events and lesson times
+come from the society's emails as of late September 2026. Photos are stock
+images for now; sources are in `design/PHOTO-CREDITS.md`. Replace a photo by
+saving your own over the same filename in `public/photos/` or `public/events/`.
 
 Events with a `date` on or after today show as upcoming; older ones drop
 into the collapsed "Past events" list. Events without an image get a styled

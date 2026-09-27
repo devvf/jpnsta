@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { EventCard } from "../components/EventCard";
 import { JoinBanner } from "../components/JoinBanner";
+import { Kanji } from "../components/Kanji";
 import { events, eventTags, type EventTag } from "../data/events";
 import { links } from "../data/site";
 import { splitEvents } from "../lib/dates";
@@ -15,11 +16,11 @@ export function Events() {
     <>
       <section className="page-head">
         <div className="container">
-          <span className="eyebrow" data-reveal>What's on</span>
+          <Kanji className="page-kanji">行事</Kanji>
           <h1 data-reveal>Events</h1>
-          <p className="lead" data-reveal style={{ marginTop: "1rem" }}>
-            Socials, food nights, film screenings, karaoke and the odd pub quiz.
-            Details and last-minute changes go on{" "}
+          <p className="lead" data-reveal>
+            Roughly one a week: pub socials, language cafés, tastings, karaoke
+            and film nights. Details and last-minute changes go on{" "}
             <a className="text-link" href={links.instagram} target="_blank" rel="noreferrer">
               Instagram
             </a>
@@ -28,7 +29,7 @@ export function Events() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section flush">
         <div className="container">
           <div className="filters" role="group" aria-label="Filter events by type">
             {(["All", ...eventTags] as const).map((t) => (
@@ -45,9 +46,9 @@ export function Events() {
 
           {first ? (
             <>
-              <EventCard event={first} featured />
+              <EventCard key={first.id} event={first} featured />
               {rest.length > 0 && (
-                <div className="event-list" style={{ marginTop: "1.25rem" }}>
+                <div className="event-list" style={{ marginTop: "3rem" }}>
                   {rest.map((e) => (
                     <EventCard key={e.id} event={e} />
                   ))}
@@ -61,7 +62,7 @@ export function Events() {
           )}
 
           {past.length > 0 && filter === "All" && (
-            <details className="past-events" style={{ marginTop: "2.5rem" }}>
+            <details className="past-events">
               <summary>Past events ({past.length})</summary>
               <div className="event-list">
                 {past.map((e) => (

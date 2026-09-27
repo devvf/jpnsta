@@ -10,7 +10,9 @@ export function LessonTable() {
             {l.note && <small>{l.note}</small>}
           </div>
           <div className="lesson-time">
-            {l.day}, {l.time}
+            {l.day}
+            <br />
+            {l.time}
           </div>
           <div className="lesson-where">{l.where}</div>
         </div>

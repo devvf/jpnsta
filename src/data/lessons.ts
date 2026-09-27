@@ -1,4 +1,5 @@
-// Weekly language lesson timetable. TODO: confirm times, rooms and levels.
+// Weekly language class timetable, from the committee's emails (autumn 2026).
+// All three levels run at the same time in the same place.
 
 export type Lesson = {
   level: string;
@@ -8,29 +9,36 @@ export type Lesson = {
   where: string;
 };
 
+const day = "Friday";
+const time = "18:00 – 19:00";
+const where = "Meeting Room 0, the Union";
+
 export const lessons: Lesson[] = [
   {
     level: "Beginner",
-    note: "Hiragana, katakana, first conversations",
-    day: "Tuesday",
-    time: "18:00 – 19:00",
-    where: "TBC",
+    note: "New to Japanese, or know a little kana and a few phrases",
+    day,
+    time,
+    where,
   },
   {
     level: "Intermediate",
-    note: "Around JLPT N4 – N3",
-    day: "Tuesday",
-    time: "19:00 – 20:00",
-    where: "TBC",
+    note: "Can read kana and basic kanji, want more grammar and comprehension",
+    day,
+    time,
+    where,
   },
   {
-    level: "Conversation",
-    note: "All levels, drop in",
-    day: "Thursday",
-    time: "18:00 – 19:00",
-    where: "TBC",
+    level: "Advanced",
+    note: "Read, write and speak at a high level, aiming for native proficiency",
+    day,
+    time,
+    where,
   },
 ];
 
 export const lessonsIntro =
-  "Free weekly lessons run by members, open to anyone with a society membership. Turn up to whichever level fits; you can move between them.";
+  "Weekly Japanese classes at three levels. Free for members, just show your membership card at the start of each lesson. Non-members pay £2 per class.";
+
+export const lessonsTerm =
+  "Fridays, 2 October to 27 November. No class on 23 October (Independent Learning Week).";
