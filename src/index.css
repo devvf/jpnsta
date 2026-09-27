@@ -155,7 +155,6 @@ summary {
 .index-list a:active,
 .text-link:active,
 .footer a:active,
-.chip:active,
 .add-cal-main:active {
   color: var(--red);
 }
@@ -876,66 +875,6 @@ main:focus {
 .page-kanji {
   font-size: 1.25rem;
   margin-bottom: 1rem;
-}
-
-/* Filters: text tabs */
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0 1.5rem;
-  margin-bottom: 2.5rem;
-  border-bottom: 1px solid var(--line);
-}
-
-@media (max-width: 719px) {
-  .filters {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scrollbar-width: none;
-    margin-inline: calc(var(--gutter) * -1);
-    padding-inline: var(--gutter);
-  }
-
-  .filters::-webkit-scrollbar {
-    display: none;
-  }
-
-  .chip {
-    flex: none;
-    white-space: nowrap;
-  }
-}
-
-.chip {
-  position: relative;
-  min-height: 48px;
-  margin-bottom: -1px;
-  padding: 0;
-  border: 0;
-  border-bottom: 2px solid transparent;
-  background: none;
-  color: var(--ink-2);
-  font: inherit;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .chip:hover {
-    color: var(--ink);
-  }
-}
-
-.chip::after {
-  content: "";
-  position: absolute;
-  inset: 0 -0.6rem;
-}
-
-.chip.active {
-  color: var(--ink);
-  border-color: var(--red);
 }
 
 /* Events: image-led, no card chrome */

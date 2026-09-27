@@ -1,17 +1,13 @@
-import { useState } from "react";
 import { EventCard } from "../components/EventCard";
 import { JoinBanner } from "../components/JoinBanner";
 import { Kanji } from "../components/Kanji";
-import { events, eventTags, type EventTag } from "../data/events";
+import { events } from "../data/events";
 import { links } from "../data/site";
 import { splitEvents } from "../lib/dates";
 
 export function Events() {
-  const [filter, setFilter] = useState<EventTag | "All">("All");
   const { upcoming, past } = splitEvents(events);
-  const usedTags = eventTags.filter((t) => upcoming.some((e) => e.tag === t));
-  const shown = filter === "All" ? upcoming : upcoming.filter((e) => e.tag === filter);
-  const [first, ...rest] = shown;
+  const [first, ...rest] = upcoming;
 
   return (
     <>
@@ -24,6 +20,7 @@ export function Events() {
             and film nights. Details and last-minute changes go on{" "}
             <a className="text-link" href={links.instagram} target="_blank" rel="noreferrer">
               Instagram
+              <span className="sr-only"> (opens in new tab)</span>
             </a>
             .
           </p>
@@ -33,23 +30,6 @@ export function Events() {
       <section className="section flush">
         <div className="container">
           <h2 className="sr-only">Upcoming events</h2>
-          <div className="filters" role="group" aria-label="Filter events by type">
-            {(["All", ...usedTags] as const).map((t) => (
-              <button
-                key={t}
-                className={`chip${filter === t ? " active" : ""}`}
-                aria-pressed={filter === t}
-                onClick={() => setFilter(t)}
-              >
-                {t}
-              </button>
-            ))}
-          </div>
-
-          <p className="sr-only" aria-live="polite">
-            {shown.length} upcoming {filter === "All" ? "" : `${filter} `}
-            {shown.length === 1 ? "event" : "events"}
-          </p>
 
           {first ? (
             <>
@@ -64,11 +44,11 @@ export function Events() {
             </>
           ) : (
             <div className="empty" data-reveal>
-              Nothing {filter === "All" ? "scheduled" : `in ${filter}`} yet. Check back soon.
+              Nothing scheduled yet. Check back soon.
             </div>
           )}
 
-          {past.length > 0 && filter === "All" && (
+          {past.length > 0 && (
             <details className="past-events">
               <summary>Past events ({past.length})</summary>
               <div className="event-list">
