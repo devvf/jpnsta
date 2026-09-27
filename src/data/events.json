@@ -35,21 +35,12 @@
       "image": "/events/stock-language.webp"
     },
     {
-      "title": "Extraordinary General Meeting",
+      "title": "EGM",
       "description": "We're electing our General Committee Members. Details on how to run will follow soon.",
       "date": "2026-10-07",
       "start": "17:00",
       "end": "18:00",
       "location": "Society Room A, the Union"
-    },
-    {
-      "title": "Test Event",
-      "description": "Do not attend this...",
-      "date": "2026-09-30",
-      "start": "01:00",
-      "end": "02:00",
-      "location": "John Pork's Spaceship",
-      "image": "/events/117672249_749101625866417_6100576988658908500_n.jpg"
     }
   ]
 }
