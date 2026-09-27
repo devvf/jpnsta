@@ -69,7 +69,7 @@ export function Header() {
         </div>
 
         <a className="btn primary header-join" href={links.union} target="_blank" rel="noreferrer">
-          Join
+          Join <span aria-hidden="true">↗</span>
           <span className="sr-only"> on the Union site, {site.membershipPrice} a year (opens in new tab)</span>
         </a>
 

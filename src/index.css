@@ -366,10 +366,19 @@ main:focus {
 }
 
 .header-join {
-  min-height: 40px;
+  position: relative;
+  gap: 0.35rem;
+  min-height: 34px;
   margin-left: auto;
-  padding: 0.4rem 0.9rem;
-  font-size: 1rem;
+  padding: 0 0.8rem;
+  font-size: 0.95rem;
+}
+
+/* Keeps a 44px tap target without a tall button */
+.header-join::after {
+  content: "";
+  position: absolute;
+  inset: -5px 0;
 }
 
 @media (max-width: 419px) {
@@ -388,7 +397,7 @@ main:focus {
   }
 
   .header-join {
-    padding: 0.4rem 0.7rem;
+    padding: 0 0.7rem;
   }
 }
 
@@ -661,6 +670,16 @@ main:focus {
 .hero .btn-row {
   align-items: center;
   column-gap: 1.75rem;
+}
+
+@media (max-width: 479px) {
+  .hero .btn-row {
+    column-gap: 1.25rem;
+  }
+
+  .hero .btn-row .btn {
+    padding-inline: 1.1rem;
+  }
 }
 
 .hero-link {
@@ -1666,7 +1685,6 @@ details.past-events .event-list {
   }
 
   .nav .btn,
-  .header-join,
   .add-cal-main,
   .add-cal-alt {
     min-height: 44px;
