@@ -6,7 +6,7 @@ const TZ = "Europe/London";
 const DEFAULT_DURATION_MIN = 120;
 
 /** Convert a wall-clock time in Europe/London to a UTC Date (handles GMT/BST). */
-function londonToUtc(isoDate: string, time: string): Date {
+export function londonToUtc(isoDate: string, time: string): Date {
   const [y, m, d] = isoDate.split("-").map(Number);
   const [hh, mm] = time.split(":").map(Number);
   const guess = Date.UTC(y, m - 1, d, hh, mm);
@@ -52,12 +52,24 @@ function range(e: SocietyEvent) {
   return { allDay: false, start: utcStamp(start), end: utcStamp(end) };
 }
 
+/** The moment an event is over, in real time, so "upcoming" is right in any timezone. */
+export function eventEndsAt(e: SocietyEvent): Date {
+  if (!e.start) return londonToUtc(e.date, "23:59");
+  const start = londonToUtc(e.date, e.start);
+  const end = e.end
+    ? londonToUtc(e.date, e.end)
+    : new Date(start.getTime() + DEFAULT_DURATION_MIN * 60_000);
+  if (end <= start) end.setUTCDate(end.getUTCDate() + 1);
+  return end;
+}
+
 function details(e: SocietyEvent) {
   return [e.subtitle, e.description, e.link, `${site.fullName}`].filter(Boolean).join("\n\n");
 }
 
 function location(e: SocietyEvent) {
   if (!e.location || e.location === "TBC") return "";
+  if (/st andrews/i.test(e.location)) return e.location;
   return `${e.location}, St Andrews`;
 }
 
@@ -105,7 +117,7 @@ export function icsContent(e: SocietyEvent) {
     "CALSCALE:GREGORIAN",
     "METHOD:PUBLISH",
     "BEGIN:VEVENT",
-    `UID:${e.id}-${e.date}@jpnsta`,
+    `UID:${e.id}@jpnsta`,
     `DTSTAMP:${utcStamp(new Date())}`,
     r.allDay ? `DTSTART;VALUE=DATE:${r.start}` : `DTSTART:${r.start}`,
     r.allDay ? `DTEND;VALUE=DATE:${r.end}` : `DTEND:${r.end}`,
@@ -119,12 +131,10 @@ export function icsContent(e: SocietyEvent) {
   return lines.map(fold).join("\r\n") + "\r\n";
 }
 
+// A real same-origin file (generated at build time by the ics-files plugin in
+// vite.config.ts). iPhones open this straight into the add-event sheet.
 export function icsHref(e: SocietyEvent) {
-  return `data:text/calendar;charset=utf-8,${encodeURIComponent(icsContent(e))}`;
-}
-
-export function icsFilename(e: SocietyEvent) {
-  return `${e.id}.ics`;
+  return `${import.meta.env.BASE_URL}cal/${e.id}.ics`;
 }
 
 export type CalendarKind = "apple" | "google";

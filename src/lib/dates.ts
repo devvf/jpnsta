@@ -1,4 +1,5 @@
 import type { SocietyEvent } from "../data/events";
+import { eventEndsAt } from "./calendar";
 
 const dayFmt = new Intl.DateTimeFormat("en-GB", { day: "numeric" });
 const monFmt = new Intl.DateTimeFormat("en-GB", { month: "short" });
@@ -27,9 +28,9 @@ export function timeRange(e: SocietyEvent) {
   return e.end ? `${e.start} – ${e.end}` : e.start;
 }
 
+// An event stays "upcoming" until it has actually finished, St Andrews time.
 export function isUpcoming(e: SocietyEvent, now = new Date()) {
-  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  return parseDate(e.date) >= today;
+  return eventEndsAt(e) > now;
 }
 
 export function splitEvents(list: SocietyEvent[]) {

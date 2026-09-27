@@ -9,6 +9,7 @@ import { splitEvents } from "../lib/dates";
 export function Events() {
   const [filter, setFilter] = useState<EventTag | "All">("All");
   const { upcoming, past } = splitEvents(events);
+  const usedTags = eventTags.filter((t) => upcoming.some((e) => e.tag === t));
   const shown = filter === "All" ? upcoming : upcoming.filter((e) => e.tag === filter);
   const [first, ...rest] = shown;
 
@@ -31,8 +32,9 @@ export function Events() {
 
       <section className="section flush">
         <div className="container">
+          <h2 className="sr-only">Upcoming events</h2>
           <div className="filters" role="group" aria-label="Filter events by type">
-            {(["All", ...eventTags] as const).map((t) => (
+            {(["All", ...usedTags] as const).map((t) => (
               <button
                 key={t}
                 className={`chip${filter === t ? " active" : ""}`}
@@ -43,6 +45,11 @@ export function Events() {
               </button>
             ))}
           </div>
+
+          <p className="sr-only" aria-live="polite">
+            {shown.length} upcoming {filter === "All" ? "" : `${filter} `}
+            {shown.length === 1 ? "event" : "events"}
+          </p>
 
           {first ? (
             <>

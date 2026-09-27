@@ -88,8 +88,9 @@ potrace logo.pbm -s --flat -t 30 -o logo-traced.svg   # then set fill to #f1342e
 ## Add to calendar
 
 Every upcoming event card has an "Add to calendar" button (`src/lib/calendar.ts`).
-Apple devices get an `.ics` file, which opens in Apple Calendar. Everything else
-gets a Google Calendar link. The other option is always offered as a small link
+Apple devices get a real `/cal/<event>.ics` file, generated at build time by the
+plugin in `vite.config.ts`, which opens the iPhone add-event sheet. Everything
+else gets a Google Calendar link. The other option is always offered as a small link
 beside it. Event times in the data are treated as St Andrews local time and
 converted to UTC, so GMT/BST is handled. Events with no `end` default to 2 hours;
 events with no `start` become all-day.

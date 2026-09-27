@@ -1,8 +1,9 @@
 import { JoinBanner } from "../components/JoinBanner";
 import { Kanji } from "../components/Kanji";
 import { LessonTable } from "../components/LessonTable";
-import { lessonsIntro, lessonsTerm } from "../data/lessons";
+import { lessonsIntro } from "../data/lessons";
 import { site } from "../data/site";
+import { asset } from "../lib/asset";
 
 export function Language() {
   return (
@@ -18,7 +19,7 @@ export function Language() {
       </section>
 
       <figure className="photo band" data-reveal>
-        <img src="/photos/language.webp" alt="" width="1600" height="1067" />
+        <img src={asset("/photos/language.webp")} alt="" decoding="async" width="1600" height="1200" />
       </figure>
 
       <section className="section">
@@ -26,7 +27,7 @@ export function Language() {
           <div className="section-head" data-reveal>
             <div>
               <Kanji>時間</Kanji>
-              <h2>Weekly timetable</h2>
+              <h2>When, where and which level</h2>
             </div>
           </div>
           <LessonTable />
@@ -42,21 +43,6 @@ export function Language() {
             </div>
           </div>
           <div className="prose" data-reveal>
-            <h3>When and where?</h3>
-            <p>
-              Every Friday, 18:00 to 19:00, in Meeting Room 0 at the Union. All
-              three levels run at the same time.
-            </p>
-            <p className="muted">{lessonsTerm}</p>
-            <h3>What level am I?</h3>
-            <p>
-              Beginner is for anyone new to Japanese, or with a little
-              hiragana, katakana and a few basic phrases. Intermediate is for
-              you if you can read hiragana, katakana and basic kanji but want
-              more grammar and comprehension. Advanced is for those who already
-              read, write and speak at a high level and are working towards
-              native proficiency.
-            </p>
             <h3>What does it cost?</h3>
             <p>
               Classes are free for members. Show your membership card at the

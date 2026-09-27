@@ -2,6 +2,7 @@ import { IndexList } from "../components/IndexList";
 import { JoinBanner } from "../components/JoinBanner";
 import { Kanji } from "../components/Kanji";
 import { links, site } from "../data/site";
+import { asset } from "../lib/asset";
 
 // TODO: fill in the current committee.
 const committee: { role: string; name: string }[] = [
@@ -14,6 +15,8 @@ const committee: { role: string; name: string }[] = [
 ];
 
 export function About() {
+  const named = committee.filter((c) => c.name && c.name !== "TBC");
+
   return (
     <>
       <section className="page-head">
@@ -27,7 +30,7 @@ export function About() {
       </section>
 
       <figure className="photo band" data-reveal>
-        <img src="/photos/about.webp" alt="" width="1600" height="1067" />
+        <img src={asset("/photos/about.webp")} alt="" decoding="async" width="1600" height="1200" />
       </figure>
 
       <section className="section">
@@ -80,14 +83,30 @@ export function About() {
               <h2>Who runs it</h2>
             </div>
           </div>
-          <dl className="roster" data-reveal>
-            {committee.map((c) => (
-              <div key={c.role}>
-                <dt>{c.role}</dt>
-                <dd>{c.name}</dd>
-              </div>
-            ))}
-          </dl>
+          {named.length > 0 ? (
+            <dl className="roster" data-reveal>
+              {named.map((c) => (
+                <div key={c.role}>
+                  <dt>{c.role}</dt>
+                  <dd>{c.name}</dd>
+                </div>
+              ))}
+            </dl>
+          ) : (
+            <div className="prose" data-reveal>
+              <p>
+                The society is run by a student committee. General Committee
+                Members are elected at the EGM on Wednesday 7 October.
+              </p>
+              <p>
+                Questions in the meantime? Email{" "}
+                <a className="text-link" href={`mailto:${site.email}`}>
+                  {site.email}
+                </a>
+                .
+              </p>
+            </div>
+          )}
         </div>
       </section>
 

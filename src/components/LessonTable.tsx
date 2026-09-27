@@ -1,22 +1,41 @@
-import { lessons } from "../data/lessons";
+import { lessons, lessonsTerm } from "../data/lessons";
 
+// All levels run at the same time and place, so state the facts once
+// and list the levels underneath rather than repeating a row per level.
 export function LessonTable() {
+  const { day, time, where } = lessons[0];
+
   return (
-    <div className="lesson-table" data-reveal>
-      {lessons.map((l) => (
-        <div className="lesson" key={l.level}>
-          <div className="lesson-level">
-            {l.level}
-            {l.note && <small>{l.note}</small>}
-          </div>
-          <div className="lesson-time">
-            {l.day}
-            <br />
-            {l.time}
-          </div>
-          <div className="lesson-where">{l.where}</div>
+    <div data-reveal>
+      <dl className="lesson-facts">
+        <div>
+          <dt>When</dt>
+          <dd>
+            {day}s, {time}
+            <span className="muted">{lessonsTerm}</span>
+          </dd>
         </div>
-      ))}
+        <div>
+          <dt>Where</dt>
+          <dd>{where}</dd>
+        </div>
+        <div>
+          <dt>Cost</dt>
+          <dd>
+            Free for members
+            <span className="muted">Show your card. £2 a class otherwise.</span>
+          </dd>
+        </div>
+      </dl>
+
+      <div className="lesson-table">
+        {lessons.map((l) => (
+          <div className="lesson" key={l.level}>
+            <div className="lesson-level">{l.level}</div>
+            {l.note && <div className="lesson-where">{l.note}</div>}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

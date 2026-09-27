@@ -7,7 +7,7 @@ export function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div>
-            <h4>{site.fullName}</h4>
+            <p className="footer-title">{site.fullName}</p>
             <p className="jp muted" style={{ fontSize: "0.9rem" }}>
               {site.nameJa}
             </p>
@@ -16,7 +16,7 @@ export function Footer() {
             </p>
           </div>
           <div>
-            <h4>Site</h4>
+            <p className="footer-title">Site</p>
             <ul>
               <li>
                 <Link to="/">Home</Link>
@@ -29,31 +29,36 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4>Elsewhere</h4>
+            <p className="footer-title">Elsewhere</p>
             <ul>
               <li>
                 <a href={links.union} target="_blank" rel="noreferrer">
                   Union page & membership
+                  <span className="sr-only"> (opens in new tab)</span>
                 </a>
               </li>
               <li>
                 <a href={links.instagram} target="_blank" rel="noreferrer">
                   Instagram @jpnsta
+                  <span className="sr-only"> (opens in new tab)</span>
                 </a>
               </li>
               <li>
                 <a href={links.instagramCareers} target="_blank" rel="noreferrer">
                   Careers Instagram
+                  <span className="sr-only"> (opens in new tab)</span>
                 </a>
               </li>
               <li>
                 <a href={links.facebook} target="_blank" rel="noreferrer">
                   Facebook
+                  <span className="sr-only"> (opens in new tab)</span>
                 </a>
               </li>
               <li>
                 <a href={links.constitution} target="_blank" rel="noreferrer">
                   Constitution
+                  <span className="sr-only"> (opens in new tab)</span>
                 </a>
               </li>
             </ul>

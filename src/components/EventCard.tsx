@@ -1,6 +1,7 @@
 import type { EventTag, SocietyEvent } from "../data/events";
-import { dayParts, parseDate, timeRange } from "../lib/dates";
+import { dayParts, longDate, parseDate, timeRange } from "../lib/dates";
 import { AddToCalendar } from "./AddToCalendar";
+import { asset } from "../lib/asset";
 
 const tagKanji: Record<EventTag, string> = {
   Social: "交流",
@@ -17,7 +18,7 @@ function Media({ event }: { event: SocietyEvent }) {
   return (
     <div className={`event-media${event.image ? "" : " placeholder"}`}>
       {event.image ? (
-        <img src={event.image} alt="" loading="lazy" width="1200" height="900" />
+        <img src={asset(event.image)} alt="" loading="lazy" decoding="async" width="1200" height="900" />
       ) : (
         <span className="event-placeholder jp" lang="ja" aria-hidden="true">
           {event.tag ? tagKanji[event.tag] : "行事"}
@@ -46,7 +47,7 @@ export function EventCard({
       <Media event={event} />
       <div className="event-body">
         <div className="event-top">
-          <time className="event-date" dateTime={event.date}>
+          <time className="event-date" dateTime={event.date} aria-hidden="true">
             <span className="day">{day}</span>
             <span className="mon">{mon}</span>
           </time>
@@ -72,6 +73,7 @@ export function EventCard({
         {event.subtitle && <p className="event-sub">{event.subtitle}</p>}
         {featured && event.description && <p className="event-desc">{event.description}</p>}
         <p className="event-meta">
+          <span className="sr-only">{longDate(event.date)}. </span>
           {weekday.format(parseDate(event.date))}
           {time && `, ${time}`}
           {event.location && (

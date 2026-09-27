@@ -8,18 +8,28 @@ import { events } from "../data/events";
 import { lessonsIntro } from "../data/lessons";
 import { links, site } from "../data/site";
 import { dayParts, parseDate, splitEvents, timeRange } from "../lib/dates";
+import { asset } from "../lib/asset";
 
 const weekday = new Intl.DateTimeFormat("en-GB", { weekday: "long" });
 
 export function Home() {
   const { upcoming } = splitEvents(events);
-  const next = upcoming.slice(0, 3);
-  const first = next[0];
+  const first = upcoming[0];
+  // "Next up" already shows the first event, so skip it below when there are enough others.
+  const next = upcoming.length >= 4 ? upcoming.slice(1, 4) : upcoming.slice(0, 3);
 
   return (
     <>
       <section className="hero">
-        <img className="hero-photo" src="/photos/hero.webp" alt="" width="2000" height="1333" />
+        <img
+          className="hero-photo"
+          src={asset("/photos/hero.webp")}
+          alt=""
+          width="2000"
+          height="1333"
+          fetchPriority="high"
+          decoding="async"
+        />
         <div className="container hero-inner">
           <p className="hero-tate jp" lang="ja" aria-hidden="true" data-reveal>
             日本協会
@@ -29,14 +39,14 @@ export function Home() {
               {site.nameJa}
             </span>
             <h1 data-reveal>
-              All things Japan, <em>in St Andrews.</em>
+              All things Japan, <em>in St&nbsp;Andrews.</em>
             </h1>
             <p className="lead" data-reveal>
               {site.hero}
             </p>
             <div className="btn-row" data-reveal>
               <a className="btn primary" href={links.union} target="_blank" rel="noreferrer">
-                Join on the Union site <span aria-hidden="true">↗</span>
+                Join for {site.membershipPrice} on the Union site <span aria-hidden="true">↗</span>
                 <span className="sr-only">(opens in new tab)</span>
               </a>
               <a className="btn outline" href={links.instagram} target="_blank" rel="noreferrer">
@@ -46,7 +56,7 @@ export function Home() {
             </div>
           </div>
         </div>
-        <img className="hero-seal" src="/logo.svg" alt={site.fullName} width="200" height="200" />
+        <img className="hero-seal" src={asset("/logo.svg")} alt="" width="200" height="200" />
       </section>
 
       <section className="next-strip">
@@ -120,7 +130,7 @@ export function Home() {
       <section className="section">
         <div className="container split media-split">
           <figure className="photo" data-reveal>
-            <img src="/photos/language.webp" alt="" loading="lazy" width="1600" height="1067" />
+            <img src={asset("/photos/language.webp")} alt="" loading="lazy" decoding="async" width="1600" height="1200" />
           </figure>
           <div>
             <div className="section-head" data-reveal>
@@ -154,7 +164,7 @@ export function Home() {
             items={[
               { label: "Instagram", note: "@jpnsta · events, photos, announcements", href: links.instagram },
               { label: "Careers in Japan", note: "@jpnsta_careers · jobs, JET, internships", href: links.instagramCareers },
-              { label: "Mailing list", note: "Weekly email · members are added automatically", href: links.mailingList },
+              { label: "Weekly email", note: "Join the society and you're added automatically", href: links.mailingList },
               { label: "Facebook", note: "Group and event pages", href: links.facebook },
             ]}
           />
