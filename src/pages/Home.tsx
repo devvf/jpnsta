@@ -39,7 +39,7 @@ export function Home() {
               {site.nameJa}
             </span>
             <h1 data-reveal>
-              All things Japan, <em>in St&nbsp;Andrews.</em>
+              All things Japan, <span className="nowrap">in St&nbsp;Andrews.</span>
             </h1>
             <p className="lead" data-reveal>
               {site.hero}
