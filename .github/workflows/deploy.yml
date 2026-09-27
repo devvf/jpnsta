@@ -1,7 +1,7 @@
 # Builds the site and publishes it to GitHub Pages on every push to main.
 # Enable in repo Settings → Pages → Source: "GitHub Actions".
-# If the site lives at username.github.io/<repo>/ rather than a custom domain,
-# set VITE_BASE to "/<repo>/" below.
+# The base path is detected automatically, so nothing needs changing for a
+# custom domain or for username.github.io/<repo>/.
 name: Deploy
 
 on:
@@ -28,9 +28,13 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # Reads where Pages will serve the site from, so the base path is right
+      # for both username.github.io/<repo>/ and a custom domain.
+      - id: pages
+        uses: actions/configure-pages@v5
       - run: npm run build
         env:
-          VITE_BASE: /
+          VITE_BASE: ${{ steps.pages.outputs.base_path }}/
       # SPA fallback so deep links like /events work on Pages.
       - run: cp dist/index.html dist/404.html
       - uses: actions/upload-pages-artifact@v3

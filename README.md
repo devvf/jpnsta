@@ -66,10 +66,10 @@ Form fields are defined in `.pages.yml`. Uploaded images land in `public/events/
 
 ## Deploying (free)
 
-**GitHub Pages** — `.github/workflows/deploy.yml` builds and publishes on every
+**GitHub Pages**: `.github/workflows/deploy.yml` builds and publishes on every
 push to `main`. Turn it on under *Settings → Pages → Source: GitHub Actions*.
-If the site is served from `username.github.io/<repo>/` set `VITE_BASE` in the
-workflow to `/<repo>/`; with a custom domain leave it as `/`.
+The base path is detected automatically. Note that Pages needs a public repo
+unless the account is on a paid GitHub plan.
 
 **Cloudflare Pages / Netlify** — connect the repo, build command `npm run build`,
 output `dist`. `public/_redirects` already handles SPA deep links.
