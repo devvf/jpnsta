@@ -18,7 +18,9 @@ const titles: Record<string, string> = {
 };
 
 function Pages() {
-  const { pathname } = useLocation();
+  const location = useLocation();
+  // Static hosts may add a trailing slash (/events/), so normalise it.
+  const pathname = location.pathname.replace(/(.)\/+$/, "$1");
   const first = useRef(true);
 
   useEffect(() => {

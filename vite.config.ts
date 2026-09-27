@@ -1,3 +1,5 @@
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { join } from 'node:path'
 import { createServer, defineConfig, type Plugin, type ViteDevServer } from 'vite'
 import react from '@vitejs/plugin-react'
 
@@ -59,9 +61,40 @@ function icsFiles(): Plugin {
   }
 }
 
+// Static hosts such as GitHub Pages only know about real files. Writing a copy
+// of the app shell for every route means /events, /language and /about load
+// directly with a 200 status and the right title, instead of a 404 fallback.
+const routes: Record<string, string> = {
+  events: 'Events · Japan Society St Andrews',
+  language: 'Japanese lessons · Japan Society St Andrews',
+  about: 'About · Japan Society St Andrews',
+}
+
+function routePages(): Plugin {
+  let outDir = 'dist'
+  return {
+    name: 'route-pages',
+    apply: 'build',
+    configResolved(config) {
+      outDir = config.build.outDir
+    },
+    closeBundle() {
+      const shell = readFileSync(join(outDir, 'index.html'), 'utf8')
+      for (const [route, title] of Object.entries(routes)) {
+        const html = shell.replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`)
+        writeFileSync(join(outDir, `${route}.html`), html)
+        mkdirSync(join(outDir, route), { recursive: true })
+        writeFileSync(join(outDir, route, 'index.html'), html)
+      }
+      // Anything else falls back to the app, which shows its own not-found page.
+      writeFileSync(join(outDir, '404.html'), shell)
+    },
+  }
+}
+
 // VITE_BASE lets the same build work at a domain root ("/") or a
 // GitHub Pages sub-path ("/<repo>/"). Defaults to "/".
 export default defineConfig({
   base: process.env.VITE_BASE ?? '/',
-  plugins: [react(), icsFiles()],
+  plugins: [react(), icsFiles(), routePages()],
 })

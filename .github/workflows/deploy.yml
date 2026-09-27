@@ -35,8 +35,6 @@ jobs:
       - run: npm run build
         env:
           VITE_BASE: ${{ steps.pages.outputs.base_path }}/
-      # SPA fallback so deep links like /events work on Pages.
-      - run: cp dist/index.html dist/404.html
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
