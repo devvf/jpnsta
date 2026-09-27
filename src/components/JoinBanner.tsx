@@ -1,5 +1,6 @@
 import { links, site } from "../data/site";
 import { Kanji } from "./Kanji";
+import { ExternalArrow } from "./ExternalArrow";
 
 export function JoinBanner() {
   return (
@@ -15,7 +16,7 @@ export function JoinBanner() {
           </p>
         </div>
         <a className="btn light" href={links.union} target="_blank" rel="noreferrer">
-          Join on the Union site <span aria-hidden="true">↗</span>
+          Join on the Union site <ExternalArrow />
           <span className="sr-only">(opens in new tab)</span>
         </a>
       </div>

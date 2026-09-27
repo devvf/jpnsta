@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { links, nav, site } from "../data/site";
 import { asset } from "../lib/asset";
+import { ExternalArrow } from "./ExternalArrow";
 
 export function Header() {
   const { pathname } = useLocation();
@@ -63,13 +64,13 @@ export function Header() {
             Instagram<span className="sr-only"> (opens in new tab)</span>
           </a>
           <a className="btn primary" href={links.union} target="_blank" rel="noreferrer">
-            Join <span aria-hidden="true">↗</span>
+            Join <ExternalArrow />
             <span className="sr-only"> on the Union site (opens in new tab)</span>
           </a>
         </div>
 
         <a className="btn primary header-join" href={links.union} target="_blank" rel="noreferrer">
-          Join <span aria-hidden="true">↗</span>
+          Join <ExternalArrow />
           <span className="sr-only"> on the Union site, {site.membershipPrice} a year (opens in new tab)</span>
         </a>
 
@@ -101,7 +102,7 @@ export function Header() {
           Instagram<span className="sr-only"> (opens in new tab)</span>
         </a>
         <a className="btn primary" href={links.union} target="_blank" rel="noreferrer">
-          Join on the Union site <span aria-hidden="true">↗</span>
+          Join on the Union site <ExternalArrow />
           <span className="sr-only"> (opens in new tab)</span>
         </a>
       </nav>

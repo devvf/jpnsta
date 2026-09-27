@@ -1,3 +1,5 @@
+import { ExternalArrow } from "./ExternalArrow";
+
 export type IndexItem = {
   label: string;
   note?: string;
@@ -18,7 +20,7 @@ export function IndexList({ items }: { items: IndexItem[] }) {
             <span className="index-label">{item.label}</span>
             {item.note && <span className="index-note">{item.note}</span>}
             <span className="index-arrow" aria-hidden="true">
-              {item.external === false ? "→" : "↗"}
+              {item.external === false ? "→" : <ExternalArrow />}
             </span>
             {item.external !== false && <span className="sr-only">(opens in new tab)</span>}
           </a>

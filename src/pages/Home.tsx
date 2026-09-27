@@ -9,6 +9,7 @@ import { lessonsIntro } from "../data/lessons";
 import { links, site } from "../data/site";
 import { dayParts, parseDate, splitEvents, timeRange } from "../lib/dates";
 import { asset } from "../lib/asset";
+import { ExternalArrow } from "../components/ExternalArrow";
 
 const weekday = new Intl.DateTimeFormat("en-GB", { weekday: "long" });
 
@@ -37,7 +38,7 @@ export function Home() {
             </h1>
             <div className="btn-row" data-reveal>
               <a className="btn primary" href={links.union} target="_blank" rel="noreferrer">
-                Become a member <span aria-hidden="true">↗</span>
+                Become a member <ExternalArrow />
                 <span className="sr-only"> on the Union site, {site.membershipPrice} a year (opens in new tab)</span>
               </a>
               <a className="hero-link" href={links.instagram} target="_blank" rel="noreferrer">

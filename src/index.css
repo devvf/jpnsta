@@ -287,6 +287,12 @@ main:focus {
   margin-top: 2rem;
 }
 
+.ext-arrow {
+  flex: none;
+  width: 0.85em;
+  height: 0.85em;
+}
+
 .text-link {
   display: inline-flex;
   align-items: baseline;
