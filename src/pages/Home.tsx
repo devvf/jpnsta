@@ -37,12 +37,12 @@ export function Home() {
             </h1>
             <div className="btn-row" data-reveal>
               <a className="btn primary" href={links.union} target="_blank" rel="noreferrer">
-                Join for {site.membershipPrice} on the Union site <span aria-hidden="true">↗</span>
-                <span className="sr-only">(opens in new tab)</span>
+                Join for {site.membershipPrice} <span aria-hidden="true">↗</span>
+                <span className="sr-only"> on the Union site (opens in new tab)</span>
               </a>
-              <a className="btn outline" href={links.instagram} target="_blank" rel="noreferrer">
-                @jpnsta on Instagram
-                <span className="sr-only"> (opens in new tab)</span>
+              <a className="hero-link" href={links.instagram} target="_blank" rel="noreferrer">
+                Follow @jpnsta
+                <span className="sr-only"> on Instagram (opens in new tab)</span>
               </a>
             </div>
           </div>
