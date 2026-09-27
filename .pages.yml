@@ -25,10 +25,10 @@ content:
             label: Title
             type: string
             required: true
-          - name: subtitle
-            label: Subtitle
-            type: string
-            description: One short line under the title, e.g. "Meet the committee".
+          - name: description
+            label: Description
+            type: text
+            description: A sentence or two about the event. Shown on the card and in calendar invites.
           - name: date
             label: Date
             type: date
@@ -51,22 +51,10 @@ content:
             label: Location
             type: string
             description: Venue name, or TBC
-          - name: tag
-            label: Category
-            type: select
-            options:
-              values: [Social, Language, Culture, Food, Careers, Society]
           - name: image
             label: Image
             type: image
             description: Landscape photo, ideally 4:3 and about 1200px wide. Leave empty for a plain card.
-          - name: status
-            label: Label on image
-            type: string
-            description: e.g. "Free with membership", "Book now", "Sold out"
-          - name: description
-            label: Description
-            type: text
           - name: link
             label: Link
             type: string

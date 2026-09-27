@@ -15,7 +15,7 @@ const weekday = new Intl.DateTimeFormat("en-GB", { weekday: "long" });
 export function Home() {
   const { upcoming } = splitEvents(events);
   const first = upcoming[0];
-  // "Next up" already shows the first event, so skip it below when there are enough others.
+  // "Next event" already shows the first event, so skip it below when there are enough others.
   const next = upcoming.length >= 4 ? upcoming.slice(1, 4) : upcoming.slice(0, 3);
 
   return (
@@ -31,19 +31,10 @@ export function Home() {
           decoding="async"
         />
         <div className="container hero-inner">
-          <p className="hero-tate jp" lang="ja" aria-hidden="true" data-reveal>
-            日本協会
-          </p>
           <div className="hero-copy">
-            <span className="eyebrow jp" lang="ja" data-reveal>
-              {site.nameJa}
-            </span>
             <h1 data-reveal>
-              All things Japan, <span className="nowrap">in St&nbsp;Andrews.</span>
+              Bringing Japanese culture <span className="nowrap">to <span className="accent">St&nbsp;Andrews</span>.</span>
             </h1>
-            <p className="lead" data-reveal>
-              {site.hero}
-            </p>
             <div className="btn-row" data-reveal>
               <a className="btn primary" href={links.union} target="_blank" rel="noreferrer">
                 Join for {site.membershipPrice} on the Union site <span aria-hidden="true">↗</span>
@@ -63,7 +54,7 @@ export function Home() {
         <div className="container next-inner">
           <div className="next-label">
             <Kanji>次回</Kanji>
-            <span>Next up</span>
+            <span>Next event</span>
           </div>
           {first ? (
             <>
@@ -119,11 +110,6 @@ export function Home() {
               No upcoming events yet. Follow @jpnsta for announcements.
             </div>
           )}
-          <p className="prose muted" data-reveal>
-            We're also planning a karaoke night, matcha and sake tastings,
-            onigiri making and a film screening with Film Society. Dates to
-            follow.
-          </p>
         </div>
       </section>
 

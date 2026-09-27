@@ -46,16 +46,19 @@ export function Header() {
       <div className="container header-inner">
         <Link to="/" className="brand" aria-label={`${site.fullName} home`}>
           <img className="brand-logo" src={asset("/logo.svg")} alt="" width="40" height="40" />
-          <span>{site.name}</span>
+          <span className="brand-name">{site.name}</span>
           <span className="brand-sub">St Andrews</span>
         </Link>
 
-        <nav className="nav" aria-label="Main">
+        <nav className="nav nav-pages" aria-label="Main">
           {nav.map((n) => (
             <NavLink key={n.to} to={n.to}>
               {n.label}
             </NavLink>
           ))}
+        </nav>
+
+        <div className="nav nav-actions">
           <a href={links.instagram} target="_blank" rel="noreferrer">
             Instagram<span className="sr-only"> (opens in new tab)</span>
           </a>
@@ -63,7 +66,7 @@ export function Header() {
             Join <span aria-hidden="true">↗</span>
             <span className="sr-only"> on the Union site (opens in new tab)</span>
           </a>
-        </nav>
+        </div>
 
         <a className="btn primary header-join" href={links.union} target="_blank" rel="noreferrer">
           Join

@@ -2,65 +2,53 @@
   "events": [
     {
       "title": "Pub Social",
-      "subtitle": "Our first pub social of the year",
+      "description": "Our first pub social of the year.",
       "date": "2026-09-18",
       "start": "19:30",
       "location": "The Rule",
-      "tag": "Social",
       "image": "/events/stock-social.webp"
     },
     {
       "title": "Garden Party",
-      "subtitle": "A relaxed way to meet members outside pub socials",
+      "description": "A relaxed afternoon of snacks, tea and good company, and a chance to meet members away from the pub.",
       "date": "2026-09-26",
       "start": "14:00",
       "end": "16:00",
-      "location": "St Andrews",
-      "tag": "Social",
-      "description": "A chilled afternoon of snacks, tea and good company."
+      "location": "St Andrews"
     },
     {
       "title": "Language Café",
-      "subtitle": "Meet new people and practise your Japanese",
+      "description": "Meet new people and practise your Japanese. Everyone is welcome, even if you don't speak any and just want to hang out.",
       "date": "2026-09-29",
       "start": "19:00",
       "end": "20:00",
       "location": "The Rule",
-      "tag": "Language",
-      "image": "/events/stock-social.webp",
-      "status": "Everyone welcome",
-      "description": "Meet new people, share your love of Japanese culture, and practise your language skills. Everyone is welcome, even if you don't speak Japanese and just want to hang out."
+      "image": "/events/stock-social.webp"
     },
     {
       "title": "Language Classes",
-      "subtitle": "First session of the semester, all levels welcome",
+      "description": "First class of the semester, all levels welcome. Classes run every Friday until 27 November, except 23 October (Independent Learning Week). Free for members, £2 per class otherwise.",
       "date": "2026-10-02",
       "start": "18:00",
       "end": "19:00",
       "location": "Meeting Room 0, the Union",
-      "tag": "Language",
-      "image": "/events/stock-language.webp",
-      "status": "Free for members",
-      "description": "Classes run every Friday until 27 November, with no class on 23 October (Independent Learning Week). Free for members (please show your membership card at the start of each lesson). £2 per class for non-members."
+      "image": "/events/stock-language.webp"
     },
     {
       "title": "Extraordinary General Meeting",
-      "subtitle": "Electing General Committee Members",
+      "description": "We're electing our General Committee Members. Details on how to run will follow soon.",
       "date": "2026-10-07",
       "start": "17:00",
       "end": "18:00",
-      "location": "Society Room A, the Union",
-      "tag": "Society",
-      "description": "We'll be holding an EGM to elect our General Committee Members. More details on how to run will follow soon."
+      "location": "Society Room A, the Union"
     },
     {
       "title": "Test Event",
-      "subtitle": "Do not attend this...",
+      "description": "Do not attend this...",
       "date": "2026-09-30",
       "start": "01:00",
       "end": "02:00",
       "location": "John Pork's Spaceship",
-      "tag": "Social",
       "image": "/events/117672249_749101625866417_6100576988658908500_n.jpg"
     }
   ]

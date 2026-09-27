@@ -64,7 +64,7 @@ export function eventEndsAt(e: SocietyEvent): Date {
 }
 
 function details(e: SocietyEvent) {
-  return [e.subtitle, e.description, e.link, `${site.fullName}`].filter(Boolean).join("\n\n");
+  return [e.description, e.link, `${site.fullName}`].filter(Boolean).join("\n\n");
 }
 
 function location(e: SocietyEvent) {
