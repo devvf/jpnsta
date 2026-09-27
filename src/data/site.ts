@@ -8,7 +8,7 @@ export const site = {
   tagline: "All things Japan, in St Andrews.",
   hero: "Bringing Japanese food and culture to our small Scottish town, St\u00a0Andrews!",
   blurb:
-    "Interested in Japanese culture? Keen to practise your Japanese, or just want to hang out? We plan to run about one event a week, and everyone is welcome.",
+    "Interested in Japanese culture? Keen to practise your Japanese, or just want to hang out? There's something on most weeks, and everyone is welcome.",
   membershipPrice: "£5",
   email: "japansociety@st-andrews.ac.uk",
 };

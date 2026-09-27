@@ -38,15 +38,15 @@ export function About() {
           <div className="section-head" data-reveal>
             <div>
               <Kanji>活動</Kanji>
-              <h2>A bit of everything</h2>
+              <h2>What we do</h2>
             </div>
           </div>
           <div className="prose" data-reveal>
             <p>
-              We plan to run about one event a week: socials, language cafés
-              and weekly language classes. Karaoke, matcha and sake tastings,
-              onigiri making and a film screening with Film Society are in the
-              pipeline.
+              There's something on most weeks, usually a social, a language
+              café or a language class. We're also planning a karaoke night,
+              matcha and sake tastings, onigiri making and a film screening
+              with Film Society. We'll post dates once they're confirmed.
             </p>
             <p>
               We also run a careers account for anyone thinking about working
@@ -59,7 +59,7 @@ export function About() {
             <h3>Membership</h3>
             <p>
               Membership is {site.membershipPrice} for the 2026/27 academic
-              year. Pay online on the{" "}
+              year. Pay online via the{" "}
               <a className="text-link" href={links.union} target="_blank" rel="noreferrer">
                 Union page
                 <span className="sr-only"> (opens in new tab)</span>
@@ -67,9 +67,9 @@ export function About() {
               , or bring {site.membershipPrice} in cash to any event.
             </p>
             <p>
-              Members get a membership card, our weekly email, free language
-              classes and discounts with our sponsors. Details of the
-              discounts are on their way.
+              You'll get a membership card, our weekly email, free language
+              classes and discounts with our sponsors. More on the discounts
+              soon.
             </p>
           </div>
         </div>
@@ -95,8 +95,8 @@ export function About() {
           ) : (
             <div className="prose" data-reveal>
               <p>
-                The society is run by a student committee. General Committee
-                Members are elected at the EGM on Wednesday 7 October.
+                We're run by a student committee. General Committee Members
+                are elected at our EGM on Wednesday 7 October.
               </p>
               <p>
                 Questions in the meantime? Email{" "}
@@ -123,7 +123,7 @@ export function About() {
               { label: "Constitution", note: "How the society is run", href: links.constitution },
               { label: "Union page", note: `Membership, ${site.membershipPrice} a year, online or cash at any event`, href: links.union },
               { label: "Email us", note: site.email, href: `mailto:${site.email}`, external: false },
-              { label: "Linktree", note: "Everything in one place", href: links.linktree },
+              { label: "Linktree", note: "All our other links, in one place", href: links.linktree },
             ]}
           />
         </div>

@@ -9,8 +9,9 @@ export function JoinBanner() {
         <div>
           <h2>Join for {site.membershipPrice} a year.</h2>
           <p>
-            Pay online through the Union, or in cash at any event. You get
-            a membership card, free language classes and our weekly email.
+            Pay online through the Union, or bring cash to any event. You'll
+            get a membership card, free language classes, and we'll add you
+            to our weekly email.
           </p>
         </div>
         <a className="btn light" href={links.union} target="_blank" rel="noreferrer">

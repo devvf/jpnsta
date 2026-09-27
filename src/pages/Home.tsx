@@ -120,9 +120,9 @@ export function Home() {
             </div>
           )}
           <p className="prose muted" data-reveal>
-            Coming soon, dates to be confirmed: karaoke night, matcha tasting,
-            a film screening with Film Society, sake tasting and onigiri
-            making.
+            We're also planning a karaoke night, matcha and sake tastings,
+            onigiri making and a film screening with Film Society. Dates to
+            follow.
           </p>
         </div>
       </section>

@@ -30,7 +30,7 @@ export const lessons: Lesson[] = [
   },
   {
     level: "Advanced",
-    note: "Read, write and speak at a high level, aiming for native proficiency",
+    note: "Read, write and speak at a high level, and want to get even better",
     day,
     time,
     where,
@@ -38,7 +38,7 @@ export const lessons: Lesson[] = [
 ];
 
 export const lessonsIntro =
-  "Weekly Japanese classes at three levels. Free for members, just show your membership card at the start of each lesson. Non-members pay £2 per class.";
+  "Weekly Japanese classes at three levels, free for members (just show your membership card at the start of each lesson). Non-members pay £2 per class.";
 
 export const lessonsTerm =
   "Fridays, 2 October to 27 November. No class on 23 October (Independent Learning Week).";

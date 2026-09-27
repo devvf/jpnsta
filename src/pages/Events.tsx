@@ -16,8 +16,8 @@ export function Events() {
           <Kanji className="page-kanji">行事</Kanji>
           <h1 data-reveal>Events</h1>
           <p className="lead" data-reveal>
-            Roughly one a week: pub socials, language cafés, tastings, karaoke
-            and film nights. Details and last-minute changes go on{" "}
+            We try to put on something most weeks, usually a pub social or
+            language café. Details and last-minute changes go on{" "}
             <a className="text-link" href={links.instagram} target="_blank" rel="noreferrer">
               Instagram
               <span className="sr-only"> (opens in new tab)</span>

@@ -23,7 +23,7 @@ export function LessonTable() {
           <dt>Cost</dt>
           <dd>
             Free for members
-            <span className="muted">Show your card. £2 a class otherwise.</span>
+            <span className="muted">Show your card. Non-members pay £2 a class.</span>
           </dd>
         </div>
       </dl>

@@ -45,19 +45,20 @@ export function Language() {
           <div className="prose" data-reveal>
             <h3>What does it cost?</h3>
             <p>
-              Classes are free for members. Show your membership card at the
-              start of each lesson. Non-members are welcome too, at £2 per
-              class. Membership is {site.membershipPrice} for the year.
+              Free for members, just show your membership card at the start
+              of each lesson. £2 per class for non-members. Membership is{" "}
+              {site.membershipPrice} for the year.
             </p>
             <h3>Teach with us</h3>
             <p>
-              We are looking for volunteer Japanese language teachers,
-              especially for the beginner class. No teaching experience needed.
-              If you would like to help, email{" "}
+              Demand for our language classes is high this year, and we're
+              especially looking for teachers for our beginner class. No
+              teaching experience needed, just enthusiasm for the language.
+              Email{" "}
               <a className="text-link" href={`mailto:${site.email}`}>
                 {site.email}
-              </a>
-              .
+              </a>{" "}
+              if you're interested.
             </p>
             <h3>Questions?</h3>
             <p>
