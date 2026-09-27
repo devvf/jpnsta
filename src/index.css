@@ -36,6 +36,8 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-padding-top: 88px;
+  /* Stops accidental double-tap zoom on phones. Pinch zoom still works. */
+  touch-action: manipulation;
 }
 
 body {
