@@ -16,8 +16,8 @@
       "start": "14:00",
       "end": "16:00",
       "location": "St Andrews",
-      "description": "A chilled afternoon of snacks, tea and good company.",
-      "tag": "Social"
+      "tag": "Social",
+      "description": "A chilled afternoon of snacks, tea and good company."
     },
     {
       "title": "Language Café",
@@ -26,10 +26,10 @@
       "start": "19:00",
       "end": "20:00",
       "location": "The Rule",
-      "description": "Meet new people, share your love of Japanese culture, and practise your language skills. Everyone is welcome, even if you don't speak Japanese and just want to hang out.",
       "tag": "Language",
       "image": "/events/stock-social.webp",
-      "status": "Everyone welcome"
+      "status": "Everyone welcome",
+      "description": "Meet new people, share your love of Japanese culture, and practise your language skills. Everyone is welcome, even if you don't speak Japanese and just want to hang out."
     },
     {
       "title": "Language Classes",
@@ -38,10 +38,10 @@
       "start": "18:00",
       "end": "19:00",
       "location": "Meeting Room 0, the Union",
-      "description": "Classes run every Friday until 27 November, with no class on 23 October (Independent Learning Week). Free for members (please show your membership card at the start of each lesson). £2 per class for non-members.",
       "tag": "Language",
       "image": "/events/stock-language.webp",
-      "status": "Free for members"
+      "status": "Free for members",
+      "description": "Classes run every Friday until 27 November, with no class on 23 October (Independent Learning Week). Free for members (please show your membership card at the start of each lesson). £2 per class for non-members."
     },
     {
       "title": "Extraordinary General Meeting",
@@ -50,8 +50,18 @@
       "start": "17:00",
       "end": "18:00",
       "location": "Society Room A, the Union",
-      "description": "We'll be holding an EGM to elect our General Committee Members. More details on how to run will follow soon.",
-      "tag": "Society"
+      "tag": "Society",
+      "description": "We'll be holding an EGM to elect our General Committee Members. More details on how to run will follow soon."
+    },
+    {
+      "title": "Test Event",
+      "subtitle": "Do not attend this...",
+      "date": "2026-09-30",
+      "start": "01:00",
+      "end": "02:00",
+      "location": "John Pork's Spaceship",
+      "tag": "Social",
+      "image": "/events/117672249_749101625866417_6100576988658908500_n.jpg"
     }
   ]
 }
